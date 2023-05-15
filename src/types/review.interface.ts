@@ -8,3 +8,8 @@ export interface IReview{
   rating: string;
 
 }
+
+export interface IDataReview{
+  text: string;
+  rating: number;
+}
