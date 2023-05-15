@@ -9,3 +9,10 @@ export enum ORDER_STATUS {
   canceled = 'CANCELED',
   delivered = 'DELIVERED'
 }
+
+export enum PRODUCT_SORT{
+  highToLow = 'high-to-low',
+  lowToHigh = 'low-to-high',
+  newest = 'newest',
+  oldest = 'oldest'
+}
