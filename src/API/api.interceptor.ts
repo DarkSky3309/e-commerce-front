@@ -4,7 +4,7 @@ import { getAccessToken, removeTokenAndUserStorage } from '@/services/auth/auth.
 import config from 'tailwindcss/defaultConfig';
 import { AuthService } from '@/services/auth/auth.service';
 
-const instance = axios.create({
+export const instance = axios.create({
   baseURL: process.env.SERVER_URL,
   headers: getContentType(),
 });
@@ -38,3 +38,4 @@ instance.interceptors.response.use(config => config, async error => {
   }
   throw error;
 });
+

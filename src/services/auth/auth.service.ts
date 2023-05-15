@@ -1,10 +1,22 @@
 import Cookies from 'js-cookie';
 import axios from 'axios';
-import { IAuthResponse } from '@/store/user/user.inteface';
+import { IAuthResponse, IEmailPassword } from '@/store/user/user.inteface';
 import { getContentType } from '@/API/api.helper';
 import { saveToStorage } from '@/services/auth/auth.helper';
+import { instance } from '@/API/api.interceptor';
 
 export const AuthService = {
+  //EXPERIMENTAL!!
+  async authorization(type: 'login' | 'register', data: IEmailPassword) {
+    const response = await instance.post<IAuthResponse>('auth/' + type, data);
+
+    if (response.data.access_token) {
+      saveToStorage(response.data);
+    }
+    return response.data;
+  },
+
+
   async getNewTokens() {
     const refreshToken = Cookies.get('refreshToken');
 
