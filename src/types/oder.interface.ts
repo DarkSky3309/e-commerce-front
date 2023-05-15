@@ -9,5 +9,5 @@ export interface IOrder {
   items: ICartItem[];
   status: ORDER_STATUS;
   user: IUser;
-
 }
+
