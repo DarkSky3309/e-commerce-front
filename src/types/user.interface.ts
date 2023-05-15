@@ -5,3 +5,11 @@ export interface IUser{
   avatarPath: string;
   phone: string;
 }
+
+export interface IDataUser{
+  email: string;
+  password?: string;
+  name?: string;
+  phone?: string;
+  avatarPath?: string;
+}
