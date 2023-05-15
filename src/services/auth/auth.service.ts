@@ -4,11 +4,16 @@ import { IAuthResponse, IEmailPassword } from '@/store/user/user.inteface';
 import { getContentType } from '@/API/api.helper';
 import { saveToStorage } from '@/services/auth/auth.helper';
 import { instance } from '@/API/api.interceptor';
+import { ICategory } from '@/types/category.interface';
 
 export const AuthService = {
   //EXPERIMENTAL!!
   async authorization(type: 'login' | 'register', data: IEmailPassword) {
-    const response = await instance.post<IAuthResponse>('auth/' + type, data);
+    const response = await instance<IAuthResponse>({
+      url: '/auth/' + type,
+      method: 'GET',
+      data
+    })
 
     if (response.data.access_token) {
       saveToStorage(response.data);
