@@ -3,6 +3,7 @@ import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { configureStore } from '@reduxjs/toolkit';
 import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE } from 'redux-persist/es/constants';
+import { userSlice } from '@/store/user/user.slice';
 
 const persistConfig = {
   key: 'e-commrce',
@@ -13,6 +14,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   // cart: cartSlice.reducer,
   // carousel: carouselSlice.reducer,
+  user: userSlice.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
