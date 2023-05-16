@@ -5,4 +5,7 @@ export interface ICartItem{
   product: IProduct;
   quantity: number;
   price: number;
+  size: TypeSize;
 }
+
+export type TypeSize = "SHORT" | "TALL" | "GRANDE" | "VENTI";
