@@ -1,3 +1,4 @@
+"use client";
 import { FC, PropsWithChildren } from 'react';
 import { TypeCompnentAuthFields } from '@/providers/auth-provider/auth-page.types';
 import { useAuth } from '@/hooks/useAuth';
