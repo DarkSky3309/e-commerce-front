@@ -3,12 +3,12 @@ import { TypeCompnentAuthFields } from '@/providers/auth-provider/auth-page.type
 import { useAuth } from '@/hooks/useAuth';
 import { useRouter } from 'next/router';
 
-const CheckRole: FC<PropsWithChildren<TypeCompnentAuthFields>> = ({ Component: { isOnlyuser }, children }) => {
+const CheckRole: FC<PropsWithChildren<TypeCompnentAuthFields>> = ({ Component: { isOnlyUser }, children }) => {
   const { user } = useAuth();
   const router = useRouter();
   const Children = <>{children}</>;
 
-  if (user && isOnlyuser) {
+  if (user && isOnlyUser) {
     return Children;
   }
 

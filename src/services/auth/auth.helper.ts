@@ -22,6 +22,10 @@ export const getAccessToken = () => {
   return Cookies.get(TOKEN_TYPE.accessToken);
 }
 
+export const getRefreshToken = () => {
+  return Cookies.get(TOKEN_TYPE.refreshToken);
+}
+
 export const getUserFromStorage = () => {
   const user = localStorage.getItem('user');
   if (user) {

@@ -4,16 +4,16 @@ import storage from 'redux-persist/lib/storage';
 import { configureStore } from '@reduxjs/toolkit';
 import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE } from 'redux-persist/es/constants';
 import { userSlice } from '@/store/user/user.slice';
+import { cartSlice } from '@/store/cart/cart.slice';
 
 const persistConfig = {
-  key: 'e-commrce',
+  key: 'e-commerce',
   storage,
   whitelist: ['cart'],
 };
 
 const rootReducer = combineReducers({
-  // cart: cartSlice.reducer,
-  // carousel: carouselSlice.reducer,
+  cart: cartSlice.reducer,
   user: userSlice.reducer,
 });
 
