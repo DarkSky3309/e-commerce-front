@@ -1,23 +1,21 @@
 'use client';
 import { FC, PropsWithChildren, useEffect } from 'react';
-import { TypeCompnentAuthFields } from '@/providers/auth-provider/auth-page.types';
-import dynamic from 'next/dynamic';
 import { useAuth } from '@/hooks/useAuth';
 import { useActions } from '@/hooks/useActions';
 import { usePathname } from 'next/navigation';
 import { getAccessToken, getRefreshToken } from '@/services/auth/auth.helper';
+import { useRouter } from 'next/router';
+import { protectedRoutes } from '@/providers/auth-provider/protected-routes.data';
 
-const DynamicCheckRole = dynamic(() => import('./CheckRole'), { ssr: false });
-const AuthProvider: FC<PropsWithChildren<TypeCompnentAuthFields>> = (
+const AuthProvider: FC<PropsWithChildren> = (
   {
-    Component: {
-      isOnlyUser,
-    }, children,
+    children,
   },
 ) => {
   const { user } = useAuth();
   const { checkAuth, logout } = useActions();
-  const pathname = usePathname()
+  const pathname = usePathname();
+  const isProtectedRoute = protectedRoutes.some(route => pathname.startsWith(route));
 
   useEffect(() => {
     const accessToken = getAccessToken();
@@ -33,11 +31,16 @@ const AuthProvider: FC<PropsWithChildren<TypeCompnentAuthFields>> = (
     }
   }, [pathname]);
 
+  const router = useRouter();
+  const Children = <>{children}</>;
 
-  return isOnlyUser ? <DynamicCheckRole Component={{ isOnlyUser }}>
-      {children}
-    </DynamicCheckRole> :
-    <>{children}</>;
+  if (user && isProtectedRoute) {
+    return Children;
+  }
+
+  router.pathname !== '/auth' && router.replace('/auth');
+  return null;
+
 };
 
 export default AuthProvider;

@@ -16,7 +16,7 @@ export default function RootLayout({ children }: {
       <ReduxProviders>
         {/*<PersistGateProvider>*/}
           {/*FIXME: This can possible be a problem*/}
-          <AuthProvider Component={{ isOnlyUser: false }} >
+          <AuthProvider>
             <body>{children}</body>
           </AuthProvider>
         {/*</PersistGateProvider>*/}
