@@ -4,24 +4,20 @@ import QueryProvider from '@/providers/query-provider/query-provider';
 import ReduxProviders from '@/providers/redux-provider/redux-provider';
 import PersistGateProvider from '@/providers/persistGate-provider/persistGate-provider';
 import AuthProvider from '@/providers/auth-provider/auth-provider';
+import AppProviders from '@/providers/providers';
+import { PropsWithChildren } from 'react';
 
 
 
-export default function RootLayout({ children }: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang='en'>
-    <QueryProvider>
-      <ReduxProviders>
-        {/*<PersistGateProvider>*/}
-          {/*FIXME: This can possible be a problem*/}
-          <AuthProvider>
-            <body>{children}</body>
-          </AuthProvider>
-        {/*</PersistGateProvider>*/}
-       </ReduxProviders>
-     </QueryProvider>
+    <head></head>
+    <body>
+    <AppProviders>
+      {children}
+    </AppProviders>
+    </body>
     </html>
   );
 }

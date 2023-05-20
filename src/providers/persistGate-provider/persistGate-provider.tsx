@@ -4,8 +4,8 @@ import { persistor } from '@/store/store';
 
 export default function PersistGateProvider({ children }: { children: React.ReactNode }) {
   return (
-    <PersistGate persistor={persistor} loading={null} >
+    <PersistGate loading={null} persistor={persistor}>
       {children}
-      </PersistGate>
-  )
+    </PersistGate>
+  );
 }

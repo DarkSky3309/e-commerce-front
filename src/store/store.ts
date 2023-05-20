@@ -1,10 +1,27 @@
 import { combineReducers } from 'redux';
 import { persistReducer, persistStore } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
 import { configureStore } from '@reduxjs/toolkit';
-import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE } from 'redux-persist/es/constants';
+import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE } from 'redux-persist';
 import { userSlice } from '@/store/user/user.slice';
 import { cartSlice } from '@/store/cart/cart.slice';
+import createWebStorage from 'redux-persist/es/storage/createWebStorage';
+
+const createNoopStorage = () => {
+  return {
+    getItem(_key: any) {
+      return Promise.resolve(null);
+    },
+    setItem(_key: any, value: any) {
+      return Promise.resolve(value);
+    },
+    removeItem(_key: any) {
+      return Promise.resolve();
+    },
+  };
+};
+
+const storage =
+  typeof window === "undefined" ? createNoopStorage() : createWebStorage('local');
 
 const persistConfig = {
   key: 'e-commerce',
@@ -13,7 +30,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  // cart: cartSlice.reducer,
+  cart: cartSlice.reducer,
   user: userSlice.reducer,
 });
 
@@ -21,7 +38,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+  middleware: getDefaultMiddleware => getDefaultMiddleware({
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },

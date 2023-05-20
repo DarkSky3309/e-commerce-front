@@ -6,7 +6,7 @@ const Auth = () => {
 
   return (
     <div>
-      sqwe
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est facere fuga hic odit repellendus sint, tempore! Debitis error odit optio!
     </div>
   );
 };
