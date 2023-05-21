@@ -11,11 +11,10 @@ export const AuthService = {
   async authorization(type: 'login' | 'register', data: IEmailPassword) {
     const response = await instance<IAuthResponse>({
       url: '/auth/' + type,
-      method: 'GET',
+      method: 'POST',
       data
     })
-
-    if (response.data.access_token) {
+    if (response.data.accessToken) {
       saveToStorage(response.data);
     }
     return response.data;
@@ -33,7 +32,7 @@ export const AuthService = {
       }
     )
 
-    if (response.data.access_token) {
+    if (response.data.accessToken) {
       saveToStorage(response.data);
     }
     return response;
