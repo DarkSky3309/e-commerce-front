@@ -3,6 +3,8 @@ const twColors = require('tailwindcss/colors')
 const colors = {
   transparent: twColors.transparent,
   black: "#2E3039",
+  gray: "#CDCDCD",
+  red: twColors.red,
   white: twColors.white,
   secondaryColor: "#161D25",
   themeColor: "#FF9902",
@@ -19,6 +21,9 @@ module.exports = {
   ],
   theme: {
     colors,
+    minWidth: {
+      '360': '360px',
+    },
     extend: {
       fontsize: {
         xs: '.82rem',
