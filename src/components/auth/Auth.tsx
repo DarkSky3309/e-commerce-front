@@ -1,13 +1,16 @@
 "use client"
 import React from 'react';
 import { usePathname } from 'next/navigation';
+import Button from '@/components/button/button';
+import Heading from '@/components/heading/heading';
 
 const Auth = () => {
 
   return (
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est facere fuga hic odit repellendus sint, tempore! Debitis error odit optio!
-    </div>
+    <>
+      <Heading>Hello</Heading>
+      <Button color={'orange'}>Hello</Button>
+    </>
   );
 };
 

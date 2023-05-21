@@ -1,13 +1,11 @@
-import '../assets/style/globals.css';
-import { PersistGate } from 'redux-persist/integration/react';
-import QueryProvider from '@/providers/query-provider/query-provider';
-import ReduxProviders from '@/providers/redux-provider/redux-provider';
-import PersistGateProvider from '@/providers/persistGate-provider/persistGate-provider';
-import AuthProvider from '@/providers/auth-provider/auth-provider';
+import '../assets/style/globals.scss';
 import AppProviders from '@/providers/providers';
 import { PropsWithChildren } from 'react';
 
-
+export const metadata = {
+  title: 'e-commerce',
+  description: 'My E-commerce app',
+}
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
