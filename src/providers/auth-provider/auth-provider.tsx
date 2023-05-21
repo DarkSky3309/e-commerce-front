@@ -36,11 +36,9 @@ const AuthProvider: FC<PropsWithChildren> = (
 
 
   useEffect(() => {
+    if (!user && isProtectedRoute)
     pathname !== '/auth' && router.replace('/auth');
   }, [user, pathname]);
-  if (user && isProtectedRoute) {
-    return <>{Children}</>;
-  }
   if (!isProtectedRoute) {
     return <>{Children}</>;
   }
