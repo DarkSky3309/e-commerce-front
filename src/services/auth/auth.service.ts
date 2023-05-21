@@ -25,14 +25,12 @@ export const AuthService = {
   async getNewTokens() {
     const refreshToken = Cookies.get('refreshToken');
 
-    const response  = await axios.post<string, {data: IAuthResponse}>(
-      process.env.SERVER_URL + '/auth/login/access-token',
-      {refreshToken},
+    const response  = await instance<string, {data: IAuthResponse}>(
       {
-        headers: getContentType()
-      }
-    )
-
+      url: '/auth/login/access-token',
+      method: 'POST',
+      data: {refreshToken}
+      });
     if (response.data.accessToken) {
       saveToStorage(response.data);
     }
