@@ -11,13 +11,15 @@ export const instance = axios.create({
 
 instance.interceptors.request.use(config => {
   const accessToken = getAccessToken();
-  if (config.headers && accessToken) {
+  console.log(config.headers);
+  if (config && config.headers && accessToken) {
     config.headers.Authorization = `Bearer ${accessToken}`;
   }
   return config;
 });
 
 instance.interceptors.response.use(config => config, async error => {
+  console.log(error);
   const originalRequest = error.config;
   if (
     (error.response.status === 401 ||

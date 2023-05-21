@@ -3,8 +3,8 @@ import { IAuthResponse, ITokens } from '@/store/user/user.inteface';
 import { TOKEN_TYPE } from '@/enums/enums';
 
 export const saveTokenStorage = (tokens: ITokens) => {
-  Cookies.set(TOKEN_TYPE.accessToken, tokens.access_token);
-  Cookies.set(TOKEN_TYPE.refreshToken, tokens.refresh_token);
+  Cookies.set(TOKEN_TYPE.accessToken, tokens.accessToken);
+  Cookies.set(TOKEN_TYPE.refreshToken, tokens.refreshToken);
 };
 
 export const removeTokenAndUserStorage = () => {

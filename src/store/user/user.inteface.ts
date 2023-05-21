@@ -3,8 +3,8 @@ export interface IUserState{
 }
 
 export interface ITokens{
-  access_token: string;
-  refresh_token: string;
+  accessToken: string;
+  refreshToken: string;
 }
 
 export interface IInitialState{

@@ -11,11 +11,11 @@ export const AuthService = {
   async authorization(type: 'login' | 'register', data: IEmailPassword) {
     const response = await instance<IAuthResponse>({
       url: '/auth/' + type,
-      method: 'GET',
+      method: 'POST',
       data
     })
 
-    if (response.data.access_token) {
+    if (response.data.accessToken) {
       saveToStorage(response.data);
     }
     return response.data;
@@ -26,14 +26,14 @@ export const AuthService = {
     const refreshToken = Cookies.get('refreshToken');
 
     const response  = await axios.post<string, {data: IAuthResponse}>(
-      process.env['SERVER_URL '] + '/auth/login/access-token',
+      process.env.SERVER_URL + '/auth/login/access-token',
       {refreshToken},
       {
         headers: getContentType()
       }
     )
 
-    if (response.data.access_token) {
+    if (response.data.accessToken) {
       saveToStorage(response.data);
     }
     return response;
