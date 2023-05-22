@@ -11,6 +11,8 @@ export const ProductService = {
     });
   },
 
+
+
   async getSimilarProducts(productId: number | string) {
     return instance<IProduct[]>({
       url: '/products/similar/' + productId,
@@ -39,7 +41,7 @@ export const ProductService = {
     });
   },
 
-  async createproduct() {
+  async createProduct() {
     return instance<IProduct>({
       url: '/products',
       method: 'POST',

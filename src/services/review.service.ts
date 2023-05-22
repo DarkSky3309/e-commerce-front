@@ -9,6 +9,13 @@ export const ReviewService = {
     });
   },
 
+  getAverageRating(productId: number) {
+    return instance<number>({
+      url: '/reviews/average/' + productId,
+      method: 'GET',
+    })
+  },
+
   async createReview(productId: number, data: IDataReview) {
     return instance<IReview>({
       url: '/reviews/create/' + productId,

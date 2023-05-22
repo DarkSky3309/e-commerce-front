@@ -14,7 +14,7 @@ const ProductItem :FC<{product: IProduct}>= ({product}) => {
       <div>
         <h3>{product.name}</h3>
         <span>{product.category.name}</span>
-        {/*<ProductRating rating={product.rating}/>*/}
+        <ProductRating product={product}/>
         <span>{product.price}</span>
       </div>
     </div>
