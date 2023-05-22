@@ -1,9 +1,9 @@
 import { instance } from '@/API/api.interceptor';
-import { IDataUser, IUser } from '@/types/user.interface';
+import { IDataUser, IFullUser, IUser } from '@/types/user.interface';
 
 export const UserService = {
   async getProfile() {
-    return instance<IUser>({
+    return instance<IFullUser>({
       url: '/users/profile',
       method: 'GET',
     });

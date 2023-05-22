@@ -17,7 +17,6 @@ const ProductItem :FC<{product: IProduct}>= ({product}) => {
         <span>{product.category.name}</span>
         <ProductRating rating={product.rating}/>
         <span>{product.price}</span>
-        <Button color={'orange'}>Add to cart</Button>
       </div>
     </div>
   );
