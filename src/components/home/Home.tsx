@@ -1,9 +1,10 @@
 import React from 'react';
+import Catalog from '@/components/catalog/Catalog';
 
 const HomeComponent = () => {
   return (
     <div>
-      123454
+      <Catalog />
     </div>
   );
 };

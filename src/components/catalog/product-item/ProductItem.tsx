@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { IProduct } from '@/types/product.interface';
 import Image from 'next/image';
-import Button from '@/components/button/button';
 import FavoriteBtn from '@/components/catalog/product-item/FavoriteBtn';
 import ProductRating from '@/components/catalog/product-item/ProductRating';
 
@@ -15,7 +14,7 @@ const ProductItem :FC<{product: IProduct}>= ({product}) => {
       <div>
         <h3>{product.name}</h3>
         <span>{product.category.name}</span>
-        <ProductRating rating={product.rating}/>
+        {/*<ProductRating rating={product.rating}/>*/}
         <span>{product.price}</span>
       </div>
     </div>

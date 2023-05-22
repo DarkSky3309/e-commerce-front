@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
+import { IProduct } from '@/types/product.interface';
 
-const ProductRating = () => {
+const ProductRating: FC<IProduct> = () => {
   return (
     <div>
       
