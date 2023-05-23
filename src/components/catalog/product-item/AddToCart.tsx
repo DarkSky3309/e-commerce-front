@@ -1,3 +1,4 @@
+'use client'
 import React, { FC } from 'react';
 import Button from '@/components/button/button';
 import { IProduct } from '@/types/product.interface';

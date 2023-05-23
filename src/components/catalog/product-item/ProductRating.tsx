@@ -1,4 +1,5 @@
-import React, { FC, useState } from 'react';
+'use client'
+import React, { FC } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { IProduct } from '@/types/product.interface';
 import { ReviewService } from '@/services/review.service';
@@ -19,7 +20,7 @@ const ProductRating: FC<{ product: IProduct }> = ({ product }) => {
         allowFraction
         transition
         />
-      <span>({product.reviews.length} reviews)</span>
+      {/*<span>({product.reviews.length} reviews)</span>*/}
     </div>
   );
 };

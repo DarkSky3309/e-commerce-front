@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { errorHandler, getContentType } from '@/API/api.helper';
 import { getAccessToken, removeTokenAndUserStorage } from '@/services/auth/auth.helper';
-import config from 'tailwindcss/defaultConfig';
 import { AuthService } from '@/services/auth/auth.service';
 
 export const instance = axios.create({
@@ -18,7 +17,6 @@ instance.interceptors.request.use(config => {
 });
 
 instance.interceptors.response.use(config => config, async error => {
-  console.log(error);
   const originalRequest = error.config;
   if (
     (error.response.status === 401 ||

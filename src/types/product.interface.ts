@@ -27,3 +27,12 @@ export type TypeDataFilters = {
   page?: number | string;
   perPage?: number | string;
 }
+
+export type TypeProduct = {
+  products: IProduct[];
+}
+
+export type TypePaginationProducts = {
+  products: IProduct[];
+  length: number;
+}

@@ -1,3 +1,4 @@
+'use client'
 import React, { FC } from 'react';
 import { IProduct } from '@/types/product.interface';
 import Image from 'next/image';

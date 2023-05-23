@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import ProductItem from '@/components/catalog/product-item/ProductItem';
+import { IProduct } from '@/types/product.interface';
 
-const Catalog = () => {
+const Catalog: FC<{ products: IProduct[] }> = ({ products }) => {
   return (
-    <div>
-    </div>
+    <section>
+      {products.length ? products.map((product: IProduct) => (
+        <ProductItem key={product.id} product={product} />
+      )) : <h2>Products not found</h2>}
+    </section>
   );
 };
 

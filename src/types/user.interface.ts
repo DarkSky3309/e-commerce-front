@@ -1,4 +1,5 @@
 import { IProduct } from '@/types/product.interface';
+import { IOrder } from '@/types/oder.interface';
 
 export interface IUser{
   id: number;
@@ -17,7 +18,7 @@ export interface IDataUser{
 }
 
 export interface IFullUser extends IUser{
-  favorites: IProduct[];
+  favorits: IProduct[];
   orders: IOrder[];
 
 }

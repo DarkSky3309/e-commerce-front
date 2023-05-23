@@ -1,10 +1,13 @@
+'use client'
 import React, { FC } from 'react';
 import { useProfile } from '@/hooks/useProfile';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { UserService } from '@/services/user.service';
-import { AiFillHeart, AiOutlineHeart } from 'react-icons/all';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import { useAuth } from '@/hooks/useAuth';
 
 const FavoriteBtn: FC<{ productId: number }> = ({ productId }) => {
+  const { user } = useAuth();
   const { profile } = useProfile();
   const { invalidateQueries } = useQueryClient();
   const { mutate } = useMutation(['toggle favorite'],
@@ -14,15 +17,17 @@ const FavoriteBtn: FC<{ productId: number }> = ({ productId }) => {
         invalidateQueries(['get profile']);
       },
     });
-
-  const isExists = profile?.favorites.some(
+  // if (!user) return (<></>);
+  const isExists = profile?.favorits.some(
     (favorite) => favorite.id === productId,
   );
 
   return (
-    <button onClick={()=> mutate()}>
-      {isExists ? <AiFillHeart /> : <AiOutlineHeart />}
-    </button>
+    <>
+      <button onClick={()=> mutate()}>
+          {isExists ? <AiFillHeart /> : <AiOutlineHeart />}
+      </button>
+    </>
   );
 };
 
