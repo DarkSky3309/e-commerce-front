@@ -8,7 +8,7 @@ import { Rating } from 'react-simple-star-rating';
 const ProductRating: FC<{ product: IProduct }> = ({ product }) => {
   const { data: rating } = useQuery(['get product rating', product.id],
         () => ReviewService.getAverageRating(product.id),
-    {select: ({data}) => data}
+    {select: ({data} : any) => data.rating}
   );
   return (
     <div>

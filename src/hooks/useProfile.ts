@@ -5,7 +5,6 @@ import select = Simulate.select;
 
 export const useProfile = () => {
   const {data} = useQuery(['get profile'], () => UserService.getProfile()
-  , {select: (data) => data.data});
-
+  , {select: ({ data }) => data, retry: false});
   return { profile: data };
 }

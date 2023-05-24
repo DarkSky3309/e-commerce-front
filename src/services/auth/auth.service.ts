@@ -21,7 +21,9 @@ export const AuthService = {
 
   async getNewTokens() {
     const refreshToken = Cookies.get('refreshToken');
-
+    if (refreshToken === undefined) {
+      throw new Error('refreshToken is undefined');
+    }
     const response  = await instance<string, {data: IAuthResponse}>(
       {
       url: '/auth/login/access-token',
