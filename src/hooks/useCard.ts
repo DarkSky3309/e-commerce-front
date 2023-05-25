@@ -1,3 +1,3 @@
 import { useTypedSelector } from '@/hooks/useTypedSelector';
 
-export const useCard = () => useTypedSelector((state) => state.card);
+export const useCart = () => useTypedSelector((state) => state.cart);

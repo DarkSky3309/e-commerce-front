@@ -3,14 +3,14 @@ import React, { FC } from 'react';
 import Button from '@/components/button/button';
 import { IProduct } from '@/types/product.interface';
 import { useActions } from '@/hooks/useActions';
-import { useCard } from '@/hooks/useCard';
+import { useCart } from '@/hooks/useCard';
 
 const AddToCart: FC<{ product: IProduct }> = ({ product }) => {
   const { addToCart, removeFromCart } = useActions();
-  const { item } = useCard();
-
-  const elementIsExistInCart = item.find((el: IProduct) => el.id === product.id);
-
+  const { items } = useCart();
+  const elementIsExistInCart = items.find((el) => {
+    return el.product.id === product.id;
+  });
   return (
     <>
       <Button onClick={() => {

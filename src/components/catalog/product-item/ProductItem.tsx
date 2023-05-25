@@ -6,6 +6,7 @@ import FavoriteBtn from '@/components/catalog/product-item/FavoriteBtn';
 import ProductRating from '@/components/catalog/product-item/ProductRating';
 import { useProfile } from '@/hooks/useProfile';
 import { useAuth } from '@/hooks/useAuth';
+import AddToCart from '@/components/catalog/product-item/AddToCart';
 
 const ProductItem: FC<{ product: IProduct }> = ({ product }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -15,7 +16,7 @@ const ProductItem: FC<{ product: IProduct }> = ({ product }) => {
   }, []);
   return (
     <>
-      {isLoaded ? <div>
+      {isLoaded && <div>
         <div>
           {user ? <FavoriteBtn productId={product.id} /> : ''}
           <Image src={product.images[0]} alt={product.name} width={300} height={300} />
@@ -25,12 +26,10 @@ const ProductItem: FC<{ product: IProduct }> = ({ product }) => {
           <span>{product.category.name}</span>
           <ProductRating productId={product.id} />
           <span>{product.price}</span>
+          <AddToCart product={product}/>
         </div>
-      </div>
-        :
-        ''}
+      </div>}
     </>
-
   );
 };
 
