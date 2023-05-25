@@ -31,8 +31,10 @@ export const AuthService = {
       data: {refreshToken}
       });
     if (response.data.accessToken) {
+      console.log('token saved');
       saveToStorage(response.data);
     }
+    console.log(refreshToken);
     return response;
   }
 

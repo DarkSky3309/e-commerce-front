@@ -5,24 +5,25 @@ import Image from 'next/image';
 import FavoriteBtn from '@/components/catalog/product-item/FavoriteBtn';
 import ProductRating from '@/components/catalog/product-item/ProductRating';
 import { useProfile } from '@/hooks/useProfile';
+import { useAuth } from '@/hooks/useAuth';
 
 const ProductItem: FC<{ product: IProduct }> = ({ product }) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const { user } = useAuth();
   useEffect(() => {
     setIsLoaded(true);
   }, []);
-  const { profile } = useProfile();
   return (
     <>
       {isLoaded ? <div>
         <div>
-          <FavoriteBtn productId={product.id}/>
+          {user ? <FavoriteBtn productId={product.id} /> : ''}
           <Image src={product.images[0]} alt={product.name} width={300} height={300} />
         </div>
         <div>
           <h3>{product.name}</h3>
           <span>{product.category.name}</span>
-          <ProductRating product={product} />
+          <ProductRating productId={product.id} />
           <span>{product.price}</span>
         </div>
       </div>

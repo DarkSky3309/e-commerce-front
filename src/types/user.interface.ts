@@ -3,10 +3,10 @@ import { IOrder } from '@/types/oder.interface';
 
 export interface IUser{
   id: number;
-  email: string;
+  email?: string;
   name: string;
   avatarPath: string;
-  phone: string;
+  phone?: string;
 }
 
 export interface IDataUser{
