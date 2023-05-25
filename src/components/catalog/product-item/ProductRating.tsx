@@ -1,7 +1,6 @@
 'use client';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { IProduct } from '@/types/product.interface';
 import { ReviewService } from '@/services/review.service';
 import { Rating } from 'react-simple-star-rating';
 
@@ -16,12 +15,12 @@ const ProductRating: FC<{ productId: number }> = ({ productId }) => {
   );
 
   return (
-    <div>
-      <Rating
+    <div className={'flex items-center relative mb-1'}>
+      <Rating className={'mb-0.5 mr-1'}
         readonly
         initialValue={rating}
         SVGstyle={{ display: 'inline-block' }}
-        size={34}
+        size={18}
         allowFraction
         transition
       />
