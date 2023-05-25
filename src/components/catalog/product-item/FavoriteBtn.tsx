@@ -9,11 +9,12 @@ import { useAuth } from '@/hooks/useAuth';
 const FavoriteBtn: FC<{ productId: number }> = ({ productId }) => {
   const { profile } = useProfile();
   const { invalidateQueries } = useQueryClient();
+  const queryCache = useQueryClient();
   const { mutate } = useMutation(['toggle favorite'],
     () => UserService.toggleFavorite(productId),
     {
       onSuccess() {
-        invalidateQueries(['get profile']);
+        queryCache.invalidateQueries(['get profile']);
       },
     });
   const isExists = profile?.favorits.some(
@@ -23,7 +24,7 @@ const FavoriteBtn: FC<{ productId: number }> = ({ productId }) => {
   return (
     <>
       <button onClick={() => mutate()}>
-        {isExists ? <AiFillHeart /> : <AiOutlineHeart />}
+        {isExists ? <AiFillHeart className={'text-themeColor'}/> : <AiOutlineHeart />}
       </button>
     </>
   );
