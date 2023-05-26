@@ -25,7 +25,7 @@ const ProductItem: FC<{ product: IProduct }> = ({ product }) => {
     setIsLoaded(true);
   }, []);
   return (
-    <div className={'relative w-fit'}>
+    <div className={'relative w-fit first:ml-6'}>
       {isLoaded && <div>
         <div className={'relative'}>
           {user ? <FavoriteBtn productId={product.id} /> : ''}

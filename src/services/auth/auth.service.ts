@@ -28,13 +28,11 @@ export const AuthService = {
       {
       url: '/auth/login/access-token',
       method: 'POST',
-      data: {refreshToken}
+      data: { refreshToken: refreshToken }
       });
     if (response.data.accessToken) {
-      console.log('token saved');
       saveToStorage(response.data);
     }
-    console.log(refreshToken);
     return response;
   }
 
