@@ -25,6 +25,9 @@ module.exports = {
       '360': '360px',
     },
     extend: {
+      height: {
+        'aside': 'calc(100vh - 80px)',
+      },
       fontsize: {
         xs: '.82rem',
         sm: '.98rem',

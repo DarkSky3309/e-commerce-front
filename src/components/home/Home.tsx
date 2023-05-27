@@ -3,6 +3,7 @@ import Catalog from '@/components/catalog/Catalog';
 import { TypePaginationProducts } from '@/types/product.interface';
 import { ProductService } from '@/services/product/product.service';
 import Header from '@/components/header/header';
+import Layout from '@/components/layout/Layout';
 
 
 export const revalidate = 60;
@@ -19,8 +20,9 @@ const HomeComponent: FC = async () => {
   const data = await getProducts();
   return (
     <div>
-      <Header/>
-      <Catalog products={data.products} title={'New products'}/>
+      <Layout>
+        <Catalog products={data.products} title={'New products'}/>
+      </Layout>
     </div>
   );
 };
