@@ -5,7 +5,7 @@ export interface IReview{
   user: IUser;
   created_at: Date;
   text: string;
-  rating: string;
+  rating: number;
 
 }
 

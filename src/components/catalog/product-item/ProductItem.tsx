@@ -34,7 +34,7 @@ const ProductItem: FC<{ product: IProduct }> = ({ product }) => {
         <div>
           <h3 className={'font-semibold leading-3 mt-2'}>{product.name}</h3>
           <span className={'text-xs text-coldBlue'}>{product.category.name}</span>
-          <ProductRating productId={product.id} />
+          <ProductRating product={product} />
           <span className={'font-bold text-xl'}>${product.price},00 </span>
           <span className={'text-gray line-through'}>${Math.floor(product.price + product.price / 100 * 10) + ',00'}</span>
           <AddToCart product={product}/>
