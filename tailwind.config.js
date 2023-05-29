@@ -31,6 +31,9 @@ module.exports = {
       height: {
         'aside': 'calc(100% - 80px)',
       },
+      gridTemplateColumns: {
+        'header': '1fr 3fr 1.2fr',
+      },
       fontsize: {
         xs: '.82rem',
         sm: '.98rem',

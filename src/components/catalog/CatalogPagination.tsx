@@ -1,5 +1,5 @@
 'use client';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import ProductItem from '@/components/catalog/product-item/ProductItem';
 import { IDataProduct, IProduct, TypePaginationProducts } from '@/types/product.interface';
 import Heading from '@/components/heading/heading';
@@ -11,27 +11,36 @@ import { useQuery } from '@tanstack/react-query';
 
 interface ICatalogPagination {
   data: TypePaginationProducts;
-  title?: string
+  title?: string;
 }
 
 const CatalogPagination: FC<ICatalogPagination> = ({ data, title }) => {
   const [sortType, setSortType] = useState<PRODUCT_SORT>(PRODUCT_SORT.newest);
   const [page, setPage] = useState(1);
-  const { data : response } = useQuery(['products', sortType, page], () => ProductService.getProducts({
+  const [products, setProducts] = useState<IProduct[]>([]);
+  const btn = useRef<HTMLDivElement>(null);
+
+  const { data: response } = useQuery(['products', sortType, page], () => ProductService.getProducts({
     page,
     perPage: 4,
     sort: sortType,
-  }),{
+  }), {
     initialData: data,
     onSuccess: (data) => {
       setProducts(prevState => [...prevState, ...data.products]);
-    }
+    },
   });
+
   useEffect(() => {
-    setProducts([])
-    setPage(1)
+    setProducts([]);
+    setPage(1);
   }, [sortType]);
-  const [products, setProducts] = useState<IProduct[]>([]);
+
+  if (response.products.length < 4) {
+    btn.current?.classList.add('hidden');
+  } else {
+    btn.current?.classList.remove('hidden');
+  }
 
   return (
     <section className={''}>
@@ -45,8 +54,9 @@ const CatalogPagination: FC<ICatalogPagination> = ({ data, title }) => {
           <ProductItem key={product.id} product={product} />
         )) : <h2>Products not found</h2>}
       </div>
-      <div className={'text-center'}>
-        <Button onClick={() => setPage(prevState => prevState + 1)} size={'sm'} color={'orange'}>Load more</Button>
+      <div className={'text-center'} ref={btn}>
+        <Button onClick={() => setPage(prevState => prevState + 1)}
+                size={'sm'} color={'orange'}>Load more</Button>
       </div>
     </section>
   );
