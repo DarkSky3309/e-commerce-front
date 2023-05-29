@@ -22,7 +22,7 @@ export interface IDataProduct {
 }
 
 export type TypeDataFilters = {
-  sortBy?: string;
+  sort?: string;
   searchTerms?: string;
   page?: number | string;
   perPage?: number | string;

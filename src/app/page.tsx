@@ -14,7 +14,7 @@ export const metadata = {
 const Home: NextPage = () => {
 
   return (
-    <div>
+    <div className={'min-h-screen'}>
       <HomeComponent></HomeComponent>
     </div>
   );

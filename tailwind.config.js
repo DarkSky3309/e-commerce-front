@@ -25,8 +25,11 @@ module.exports = {
       '360': '360px',
     },
     extend: {
+      minHeight:{
+        'screen-80': 'calc(100vh - 80px)',
+      },
       height: {
-        'aside': 'calc(100vh - 80px)',
+        'aside': 'calc(100% - 80px)',
       },
       fontsize: {
         xs: '.82rem',

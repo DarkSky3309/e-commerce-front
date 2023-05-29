@@ -3,12 +3,12 @@ import { instance } from '@/API/api.interceptor';
 
 export const ProductService = {
   async getProducts(queryData?: TypeDataFilters) {
-    return instance<TypePaginationProducts>({
+    const { data } = await instance<TypePaginationProducts>({
       url: '/products',
       method: 'GET',
-      //CAN MAKE BUGS
       params: queryData ? queryData : undefined,
     });
+    return data;
   },
 
 

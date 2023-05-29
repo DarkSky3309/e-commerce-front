@@ -6,7 +6,7 @@ const Layout: FC<PropsWithChildren<unknown>> = ({ children }) => {
   return (
     <>
       <Header />
-      <div className={'grid grid-cols-2'} style={
+      <div className={'min-h-screen-80 grid grid-cols-2'} style={
         {
           gridTemplateColumns: '1fr 4fr',
         }

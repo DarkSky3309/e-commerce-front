@@ -2,7 +2,7 @@ import React from 'react';
 
 const Sidebar = () => {
   return (
-    <div className={'h-aside bg-secondaryColor'}>
+    <div className={'h-full bg-secondaryColor'}>
       SIDEBAR
     </div>
   );
