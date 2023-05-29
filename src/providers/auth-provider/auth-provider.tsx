@@ -2,7 +2,7 @@
 import { FC, PropsWithChildren, useEffect } from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import { useActions } from '@/hooks/useActions';
-import { usePathname } from 'next/navigation';
+import { redirect, usePathname } from 'next/navigation';
 import { getAccessToken, getRefreshToken } from '@/services/auth/auth.helper';
 import { useRouter } from 'next/navigation';
 import { protectedRoutes } from '@/providers/auth-provider/protected-routes.data';
@@ -43,7 +43,7 @@ const AuthProvider: FC<PropsWithChildren> = (
   } else if (isProtectedRoute && user) {
     return <>{Children}</>;
   } else {
-    return <></>;
+    return redirect('/auth');
   }
 
 };

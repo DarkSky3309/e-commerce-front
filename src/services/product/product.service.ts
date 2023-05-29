@@ -3,6 +3,7 @@ import { instance } from '@/API/api.interceptor';
 
 export const ProductService = {
   async getProducts(queryData?: TypeDataFilters) {
+    console.log('queryData', queryData);
     const { data } = await instance<TypePaginationProducts>({
       url: '/products',
       method: 'GET',
