@@ -18,7 +18,6 @@ const AuthProvider: FC<PropsWithChildren> = (
   const isProtectedRoute = protectedRoutes.some(route => pathname.startsWith(route));
   const router = useRouter();
   const Children = <>{children}</>;
-
   useEffect(() => {
     const accessToken = getAccessToken();
     if (accessToken) {
@@ -41,8 +40,11 @@ const AuthProvider: FC<PropsWithChildren> = (
   }, [user, pathname]);
   if (!isProtectedRoute) {
     return <>{Children}</>;
+  } else if (isProtectedRoute && user) {
+    return <>{Children}</>;
+  } else {
+    return <></>;
   }
-  return null
 
 };
 

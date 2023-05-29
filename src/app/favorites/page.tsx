@@ -1,6 +1,4 @@
 import { NextPage } from 'next';
-import Layout from '@/components/layout/Layout';
-import Catalog from '@/components/catalog/Catalog';
 import Favorites from '@/components/favorites/favorites';
 
 export const metadata = {
@@ -10,9 +8,7 @@ export const metadata = {
 
 
 const FavoritesPage: NextPage = () => {
-  return <Layout>
-    <Favorites/>
-  </Layout>;
+  return <Favorites/>
 };
 
 export default FavoritesPage;
