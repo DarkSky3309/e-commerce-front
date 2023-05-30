@@ -3,7 +3,8 @@ import Image from 'next/image';
 import logo from '@/assets/images/amazon_logo.svg';
 import Link from 'next/link';
 import { AiOutlineHeart } from 'react-icons/ai';
-import SearchBar from '@/components/heading/components/searchBar/searchBar';
+import SearchBar from '@/components/header/components/searchBar/searchBar';
+import HeaderCart from '@/components/header/components/headerCart/headerCart';
 
 const Header: FC = () => {
   return (
@@ -15,6 +16,7 @@ const Header: FC = () => {
       <div className={'flex justify-end gap-3'}>
 
         <Link href={'/favorites'}>
+          <HeaderCart/>
           <AiOutlineHeart className={'text-white text-xl'} />
         </Link>
       </div>

@@ -1,8 +1,10 @@
+'use client';
 import React from 'react';
 import { useModal } from '@/hooks/useModal';
 import { useCart } from '@/hooks/useCard';
 import SquareButton from '@/components/button/squareButton';
 import { RiShoppingCartLine } from 'react-icons/all';
+import CartItem from '@/components/header/components/headerCart/cart-item/cartItem';
 
 const HeaderCart = () => {
   const { isShowing, setIsShowing, ref } = useModal(false);
