@@ -3,7 +3,7 @@ import Image from 'next/image';
 import logo from '@/assets/images/amazon_logo.svg';
 import Link from 'next/link';
 import { AiOutlineHeart } from 'react-icons/ai';
-import SearchBar from '@/components/search/searchBar';
+import SearchBar from '@/components/heading/components/searchBar/searchBar';
 
 const Header: FC = () => {
   return (

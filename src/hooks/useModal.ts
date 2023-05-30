@@ -6,7 +6,7 @@ type TypeOut = {
   setIsShowing: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const useClickOutside = (initialVisible: boolean): TypeOut => {
+export const useModal = (initialVisible: boolean): TypeOut => {
   const [isShowing, setIsShowing] = useState(initialVisible);
   const ref = useRef<HTMLElement>(null);
   const handleClickOutside = (event: MouseEvent) => {
