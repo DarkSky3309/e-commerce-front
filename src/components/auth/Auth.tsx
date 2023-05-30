@@ -1,23 +1,24 @@
 'use client';
-import React, { useState } from 'react';
-import { usePathname } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
 import Button from '@/components/button/button';
 import Heading from '@/components/heading/heading';
-import { useAuth } from '@/hooks/useAuth';
 import { useActions } from '@/hooks/useActions';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { IEmailPassword } from '@/store/user/user.inteface';
 import Field from '@/components/input/field';
+import { useAuth } from '@/hooks/useAuth';
 
 const Auth = () => {
-
-  const { isLoading } = useAuth();
   const { login, register } = useActions();
   const [type, setType] = useState<'login' | 'register'>('login');
   const { register: formRegister, handleSubmit, formState: { errors }, reset } = useForm<IEmailPassword>({
     mode: 'onChange',
   });
+  const { user } = useAuth();
 
+  useEffect(() => {
+    user && window.location.replace('/');
+  }, [user]);
   const onSubmit: SubmitHandler<IEmailPassword> = (data) => {
     type === 'login' ? login(data) : register(data);
     reset();

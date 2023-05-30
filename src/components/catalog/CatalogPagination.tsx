@@ -1,7 +1,7 @@
 'use client';
 import React, { FC, useEffect, useRef, useState } from 'react';
 import ProductItem from '@/components/catalog/product-item/ProductItem';
-import { IDataProduct, IProduct, TypePaginationProducts } from '@/types/product.interface';
+import { IProduct, TypePaginationProducts } from '@/types/product.interface';
 import Heading from '@/components/heading/heading';
 import SortDropDown from '@/components/catalog/SortDropDown';
 import Button from '@/components/button/button';
