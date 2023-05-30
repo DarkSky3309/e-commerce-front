@@ -7,15 +7,15 @@ import SearchBar from '@/components/search/searchBar';
 
 const Header: FC = () => {
   return (
-    <header className={'bg-secondaryColor h-20 grid items-center px-10 grid-cols-header '}>
+    <header className={'bg-secondaryColor h-20 grid items-center px-10 grid-cols-header'}>
       <Link href={'/'}>
         <Image alt={'logo'} src={logo} width={100} height={100} />
       </Link>
-      <div>
-        <SearchBar/>
+      <SearchBar/>
+      <div className={'flex justify-end gap-3'}>
 
         <Link href={'/favorites'}>
-          <AiOutlineHeart className={'text-white'} />
+          <AiOutlineHeart className={'text-white text-xl'} />
         </Link>
       </div>
     </header>
