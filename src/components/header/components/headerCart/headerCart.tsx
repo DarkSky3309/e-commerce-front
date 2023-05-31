@@ -3,7 +3,7 @@ import React from 'react';
 import { useModal } from '@/hooks/useModal';
 import { useCart } from '@/hooks/useCard';
 import SquareButton from '@/components/button/squareButton';
-import { RiShoppingCartLine } from 'react-icons/all';
+import { RiShoppingCartLine } from 'react-icons/ri';
 import CartItem from '@/components/header/components/headerCart/cart-item/cartItem';
 
 const HeaderCart = () => {
@@ -14,7 +14,7 @@ const HeaderCart = () => {
       <SquareButton Icon={RiShoppingCartLine}
                     number={items.length}
                     onClick={() => setIsShowing(!isShowing)} />
-      {isShowing && <div className={'absolute top-10 right-0 bg-white rounded-md shadow-lg p-4'}>
+      {isShowing && <div className={'absolute z-10 top-10 right-0 bg-white rounded-md shadow-lg p-4'}>
         <div className={'flex justify-between items-center'}>
           <h3 className={'text-lg font-bold'}>Cart</h3>
           <div>{items.length ? (items.map(item => <CartItem item={item} key={item.id}/>)): (<span className={'font-light'}>Cart is empty</span>)}</div>

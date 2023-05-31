@@ -13,10 +13,9 @@ const Header: FC = () => {
         <Image alt={'logo'} src={logo} width={100} height={100} />
       </Link>
       <SearchBar/>
-      <div className={'flex justify-end gap-3'}>
-
+      <div className={'flex justify-end items-center gap-3'}>
+        <HeaderCart/>
         <Link href={'/favorites'}>
-          <HeaderCart/>
           <AiOutlineHeart className={'text-white text-xl'} />
         </Link>
       </div>

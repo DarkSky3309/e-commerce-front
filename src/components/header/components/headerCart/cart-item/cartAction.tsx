@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import { ICartItem } from '@/types/cart.interface';
 import { useActions } from '@/hooks/useActions';
 import { useCart } from '@/hooks/useCard';
-import { FiMinus, FiPlus, FiTrash } from 'react-icons/all';
+import { FiMinus, FiPlus, FiTrash } from 'react-icons/fi';
 
 const CartAction: FC<{ item: ICartItem }> = ({item}) => {
   const { removeFromCart, changeQuantity } = useActions()
