@@ -23,6 +23,13 @@ module.exports = {
     colors,
     minWidth: {
       '360': '360px',
+      '140': '140px',
+    },
+    top: {
+      '15': '3.75rem',
+    },
+    minHeight: {
+      '100': '100px',
     },
     extend: {
       minHeight:{
