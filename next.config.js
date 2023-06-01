@@ -23,6 +23,11 @@ const nextConfig = {
         hostname: 'pngkey.com',
         port: '',
         pathname: '**',
+      },{
+        protocol: 'https',
+        hostname: 'cloudflare-ipfs.com',
+        port: '',
+        pathname: '**',
       },
     ],
   },
