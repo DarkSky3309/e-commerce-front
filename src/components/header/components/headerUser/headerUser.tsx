@@ -7,7 +7,7 @@ const HeaderUser :FC = () => {
   return (
     <>
       {profile?.avatarPath && (
-        <Image className={'rounded-full border-themeColor border border-solid animate-opacity'}
+        <Image className={'rounded-full border-themeColor border border-solid'}
                src={profile.avatarPath}
                alt={"profile"}
                width={43}
