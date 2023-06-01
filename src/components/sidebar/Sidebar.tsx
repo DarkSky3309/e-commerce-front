@@ -24,7 +24,7 @@ const Sidebar = () => {
   }, [data]);
 
   return (
-    <aside className={'h-full bg-secondaryColor'}>
+    <aside className={'h-full bg-secondaryColor flex flex-col justify-between'}>
       {(isLoaded) &&
       <>
         <div>
@@ -46,7 +46,7 @@ const Sidebar = () => {
 
         </div>
         {!!user && (
-          <button onClick={logout} className={'text-white flex items-center'}>
+          <button onClick={logout} className={'text-white flex items-center mx-auto mb-4'}>
             <FiLogOut size={20} className={'mr-2'} />
             <span>Logout</span>
           </button>
