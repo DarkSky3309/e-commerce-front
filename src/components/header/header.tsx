@@ -16,11 +16,11 @@ const Header: FC = () => {
         </div>
       </Link>
       <SearchBar/>
-      <div className={'flex justify-end items-center gap-3'}>
-        <HeaderCart/>
+      <div className={'flex justify-end items-center gap-5'}>
         <Link href={'/favorites'}>
           <AiOutlineHeart className={'text-white text-xl'} />
         </Link>
+        <HeaderCart/>
         <HeaderUser/>
       </div>
     </header>

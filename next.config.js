@@ -28,6 +28,11 @@ const nextConfig = {
         hostname: 'cloudflare-ipfs.com',
         port: '',
         pathname: '**',
+      },{
+        protocol: 'https',
+        hostname: 'www.apple.com',
+        port: '',
+        pathname: '**',
       },
     ],
   },

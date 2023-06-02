@@ -1,7 +1,5 @@
 'use client';
 import React, { FC, useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { ReviewService } from '@/services/review.service';
 import { Rating } from 'react-simple-star-rating';
 import { IProduct } from '@/types/product.interface';
 

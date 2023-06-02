@@ -3,11 +3,6 @@ import React, { FC, useState } from 'react';
 import ProductItem from '@/components/catalog/product-item/ProductItem';
 import { IProduct } from '@/types/product.interface';
 import Heading from '@/components/heading/heading';
-import SortDropDown from '@/components/catalog/SortDropDown';
-import Button from '@/components/button/button';
-import { PRODUCT_SORT } from '@/enums/enums';
-import { ProductService } from '@/services/product/product.service';
-import { useQuery } from '@tanstack/react-query';
 
 interface ICatalog {
   products: IProduct[];
