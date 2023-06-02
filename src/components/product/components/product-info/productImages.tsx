@@ -13,7 +13,11 @@ const ProductImages: FC<{images: string[], name: string}> = ({images, name}) => 
       <Image style={{height: '400px', width: '400px'}} className={'object-contain'} src={currentImage} alt={name} width={400} height={400}/>
       <div className={'flex gap-3 mt-5'}>
         {images.map((image, index) => (
-          <Image onClick={() => changeImage(image)} className={`w-24 h-24 object-contain cursor-pointer bg-bgColor`} key={index} src={image} alt={name} width={100} height={100}/>
+          <Image onClick={() => changeImage(image)}
+                 className={`w-24 h-24 object-contain cursor-pointer bg-white`}
+                 key={index} src={image}
+                 alt={name} width={100}
+                 height={100}/>
         ))}
       </div>
     </div>

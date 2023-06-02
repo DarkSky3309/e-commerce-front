@@ -18,7 +18,7 @@ const CartAction: FC<{ item: ICartItem }> = ({item}) => {
         <button onClick={() => changeQuantity({id: item.id, type: 'increase'})}>
           <FiPlus size={13}/>
         </button>
-        <button onClick={() => removeFromCart({id: item.id})}
+        <button onClick={() => removeFromCart({id: item.product.id})}
         className={'ml-3'}>
           <FiTrash size={13}/>
         </button>

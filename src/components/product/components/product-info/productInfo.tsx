@@ -3,6 +3,7 @@ import { IProduct } from '@/types/product.interface';
 import Link from 'next/link';
 import Image from 'next/image';
 import ProductImages from '@/components/product/components/product-info/productImages';
+import ProductBuy from '@/components/product/components/product-info/productBuy';
 
 const ProductInfo: FC<{ product: IProduct }> = ({ product }) => {
   return (
@@ -20,10 +21,7 @@ const ProductInfo: FC<{ product: IProduct }> = ({ product }) => {
         <h1 className={'font-bold text-2xl mt-4'}>{product.name}</h1>
         <div className={'mt-3'}>
           <ProductImages name={product.name} images={product.images}/>
-          <div className={'flex items-center mt-2'}>
-            <span className={'text-xl font-bold'}>${product.price}</span>
-            <span className={'text-sm ml-2 text-gray-500'}>In Stock</span>
-          </div>
+          <ProductBuy product={product}/>
         </div>
 
       </div>
