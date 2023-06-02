@@ -3,7 +3,7 @@ import { IProduct } from '@/types/product.interface';
 import Link from 'next/link';
 import Image from 'next/image';
 import ProductImages from '@/components/product/components/product-info/productImages';
-import ProductBuy from '@/components/product/components/product-info/productBuy';
+import ProductBuy from '@/components/product/components/product-info/components/productBuy/productBuy';
 
 const ProductInfo: FC<{ product: IProduct }> = ({ product }) => {
   return (
@@ -19,7 +19,7 @@ const ProductInfo: FC<{ product: IProduct }> = ({ product }) => {
       </nav>
       <div>
         <h1 className={'font-bold text-2xl mt-4'}>{product.name}</h1>
-        <div className={'mt-3'}>
+        <div className={'mt-3 flex'}>
           <ProductImages name={product.name} images={product.images}/>
           <ProductBuy product={product}/>
         </div>

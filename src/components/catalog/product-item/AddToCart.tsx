@@ -13,7 +13,7 @@ const AddToCart: FC<{ product: IProduct }> = ({ product }) => {
   });
   return (
     <>
-      <Button className={'block mx-auto mt-2 w-11/12'} onClick={() => {
+      <Button className={'block mt-2 w-11/12'} onClick={() => {
         elementIsExistInCart ?
           removeFromCart({ id: product.id }) :
           addToCart({ product, quantity: 1, price: product.price });

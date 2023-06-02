@@ -22,9 +22,11 @@ const FavoriteBtn: FC<{ productId: number }> = ({ productId }) => {
 
   return (
     <>
-      <button className={'absolute right-2 top-2 text-2xl'} onClick={() => mutate()}>
-        {isExists ? <AiFillHeart className={'text-themeColor'}/> : <AiOutlineHeart />}
-      </button>
+      {
+        profile && <button className={'text-2xl'} onClick={() => mutate()}>
+          {isExists ? <AiFillHeart className={'text-themeColor'}/> : <AiOutlineHeart />}
+        </button>
+      }
     </>
   );
 };
