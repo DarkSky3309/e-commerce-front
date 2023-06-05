@@ -6,6 +6,7 @@ import ProductImages from '@/components/product/components/product-info/productI
 import ProductBuy from '@/components/product/components/product-info/components/productBuy/productBuy';
 import ProductDescriptions from '@/components/product/components/product-info/components/productDescriptions';
 import AboutProduct from '@/components/product/components/product-info/components/aboutProduct';
+import SimilarProduct from '@/components/product/components/product-info/components/similarProduct';
 
 const ProductInfo: FC<{ product: IProduct }> = ({ product }) => {
   return (
@@ -28,7 +29,7 @@ const ProductInfo: FC<{ product: IProduct }> = ({ product }) => {
         </div>
       </div>
       <AboutProduct/>
-
+      <SimilarProduct id={product.id}/>
     </div>
   );
 };
