@@ -5,8 +5,8 @@ import { CategoryService } from '@/services/category.service';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '@/hooks/useAuth';
-import { logout } from '@/store/user/user.actions';
 import { FiLogOut } from 'react-icons/fi';
+import { useActions } from '@/hooks/useActions';
 
 const Sidebar = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -17,11 +17,17 @@ const Sidebar = () => {
       select: ({ data }) => data,
     },
   );
+  const { logout } = useActions();
   const { user } = useAuth();
   const pathname = usePathname();
   useEffect(() => {
     setIsLoaded(true);
   }, [data]);
+
+  const logoutHandler = () => {
+    logout();
+    window.location.reload();
+  }
 
   return (
     <aside className={'fixed w-1/5 mt-20 h-aside bg-secondaryColor flex flex-col justify-between'}>
@@ -46,7 +52,7 @@ const Sidebar = () => {
 
         </div>
         {!!user && (
-          <button onClick={logout} className={'text-white flex items-center mx-auto mb-4'}>
+          <button onClick={() => logoutHandler()} className={'text-white flex items-center mx-auto mb-4'}>
             <FiLogOut size={20} className={'mr-2'} />
             <span>Logout</span>
           </button>
