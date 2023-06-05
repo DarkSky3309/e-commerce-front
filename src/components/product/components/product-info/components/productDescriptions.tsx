@@ -12,13 +12,14 @@ const DescriptionItem:FC<{title:string, content:string}> = ({title, content}) =>
 const ProductDescriptions = () => {
   return (
     <div className={'w-1/4'}>
-      <div className={'mb-4 flex flex-col gap-3'}>
+      <div className={'mb-4 flex flex-col justify-between gap-3 '}>
         <DescriptionItem title={'Brand'} content={'Apple'}/>
         <DescriptionItem title={'Color'} content={'Blue'}/>
         <DescriptionItem title={'Lorem'} content={'Lorem'}/>
         <DescriptionItem title={'Lorem'} content={'Lorem'}/>
       </div>
       <ul className={'text-secondaryColor list-disc text-sm'}>
+        <li className={' mb-2'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium</li>
         <li className={' mb-2'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium</li>
         <li className={' mb-2'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium</li>
         <li className={' mb-2'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium</li>

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import ProductImages from '@/components/product/components/product-info/productImages';
 import ProductBuy from '@/components/product/components/product-info/components/productBuy/productBuy';
 import ProductDescriptions from '@/components/product/components/product-info/components/productDescriptions';
+import AboutProduct from '@/components/product/components/product-info/components/aboutProduct';
 
 const ProductInfo: FC<{ product: IProduct }> = ({ product }) => {
   return (
@@ -25,8 +26,8 @@ const ProductInfo: FC<{ product: IProduct }> = ({ product }) => {
           <ProductDescriptions/>
           <ProductBuy product={product}/>
         </div>
-
       </div>
+      <AboutProduct/>
 
     </div>
   );
