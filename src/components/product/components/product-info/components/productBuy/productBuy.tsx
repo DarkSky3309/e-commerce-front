@@ -3,6 +3,7 @@ import { IProduct } from '@/types/product.interface';
 import AddToCart from '@/components/catalog/product-item/AddToCart';
 import BuyInOneClick from '@/components/product/components/product-info/components/productBuy/BuyInOneClick';
 import FavoriteBtn from '@/components/catalog/product-item/FavoriteBtn';
+import { RiLockPasswordLine } from 'react-icons/ri';
 
 const ProductBuy:FC<{product: IProduct}> = ({product}) => {
   const time = new Date().getTime() + 5270400000;
@@ -17,9 +18,11 @@ const ProductBuy:FC<{product: IProduct}> = ({product}) => {
           <BuyInOneClick product={product}/>
           <FavoriteBtn productId={product.id}/>
         </div>
-
       </div>
-
+      <div className={'flex gap-3 items-center mt-2 text-gray'}>
+        <RiLockPasswordLine className={''} size={14}/>
+        <span className={'text-xs'}>Secure transaction</span>
+      </div>
     </div>
   );
 };
