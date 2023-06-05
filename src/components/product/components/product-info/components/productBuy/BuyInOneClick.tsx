@@ -13,7 +13,7 @@ const BuyInOneClick:FC<{product: IProduct}> = ({product}) => {
   }
 
   return (
-    <Button className={'w-11/12'} onClick={buyInOneClick} color={'orange'}>Buy in one click
+    <Button className={'w-full'} onClick={buyInOneClick} color={'orange'}>Buy in one click
     </Button>
   );
 };
