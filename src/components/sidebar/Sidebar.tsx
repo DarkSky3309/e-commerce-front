@@ -10,7 +10,7 @@ import { FiLogOut } from 'react-icons/fi';
 
 const Sidebar = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const { data, isLoading } = useQuery(
+  const { data } = useQuery(
     ['get categories'],
     () => CategoryService.getCategories(),
     {
@@ -24,7 +24,7 @@ const Sidebar = () => {
   }, [data]);
 
   return (
-    <aside className={'h-full bg-secondaryColor flex flex-col justify-between'}>
+    <aside className={'fixed w-1/5 mt-20 h-aside bg-secondaryColor flex flex-col justify-between'}>
       {(isLoaded) &&
       <>
         <div>

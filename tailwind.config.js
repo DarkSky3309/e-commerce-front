@@ -36,7 +36,7 @@ module.exports = {
         'screen-80': 'calc(100vh - 80px)',
       },
       height: {
-        'aside': 'calc(100% - 80px)',
+        'aside': 'calc(100vh - 80px)',
       },
       gridTemplateColumns: {
         'header': '1fr 3fr 1fr',
