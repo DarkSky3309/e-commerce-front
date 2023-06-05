@@ -9,7 +9,7 @@ import HeaderUser from '@/components/header/components/headerUser/headerUser';
 
 const Header: FC = () => {
   return (
-    <header className={'fixed w-full bg-secondaryColor h-20 grid items-center px-10 grid-cols-header'}>
+    <header className={'z-10 fixed w-full bg-secondaryColor h-20 grid items-center px-10 grid-cols-header'}>
       <Link href={'/'}>
         <div className={''}>
           <Image alt={'logo'} src={logo} width={100} height={30}/>
