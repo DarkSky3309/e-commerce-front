@@ -4,7 +4,7 @@ const AboutProduct = () => {
   return (
     <div>
       <h3 className={'font-bold text-3xl mt-10 mb-5'}>About this item</h3>
-      <div className={'grid grid-cols-3'} style={{gridTemplateRows: '30px 500px', gridTemplateColumns: '1fr 1fr 5fr'}}>
+      <div className={'grid grid-cols-3'} style={{gridTemplateRows: '30px 300px', gridTemplateColumns: '1fr 1fr 5fr'}}>
         <h4 className={'order-1 font-bold'}>Specifications</h4>
         <div className={'order-2'}>
       </div>

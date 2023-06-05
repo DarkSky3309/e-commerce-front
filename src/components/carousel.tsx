@@ -1,6 +1,5 @@
-import React, { FC, ReactElement, useEffect, useRef, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { IProduct } from '@/types/product.interface';
 import { useQuery } from '@tanstack/react-query';
 import { ProductService } from '@/services/product/product.service';
 import { useRouter } from 'next/navigation';
@@ -25,7 +24,7 @@ const Carousel: FC<{ id: number | string }> = ({  id }) => {
                   draggable={false}/>;
   });
   const redirect = (slug: string) => {
-    router.replace(`/product/${slug}`)
+    router.push(`/product/${slug}`)
   }
 
   useEffect(() => {
