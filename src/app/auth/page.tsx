@@ -5,9 +5,9 @@ export const metadata = {
   title: 'Auth | E-commerce',
   description: 'My E-commerce app',
 
-}
+};
 const AuthPage: NextPage = () => {
-  return <><Auth/></>;
+  return <><Auth /></>;
 };
 
 export default AuthPage;

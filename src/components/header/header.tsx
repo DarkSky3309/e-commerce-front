@@ -12,16 +12,16 @@ const Header: FC = () => {
     <header className={'z-10 fixed w-full bg-secondaryColor h-20 grid items-center px-10 grid-cols-header'}>
       <Link href={'/'}>
         <div className={''}>
-          <Image alt={'logo'} src={logo} width={100} height={30}/>
+          <Image alt={'logo'} src={logo} width={100} height={30} />
         </div>
       </Link>
-      <SearchBar/>
+      <SearchBar />
       <div className={'flex justify-end items-center gap-5'}>
         <Link href={'/favorites'}>
           <AiOutlineHeart className={'text-white text-xl'} />
         </Link>
-        <HeaderCart/>
-        <HeaderUser/>
+        <HeaderCart />
+        <HeaderUser />
       </div>
     </header>
   );

@@ -7,12 +7,12 @@ import Catalog from '@/components/catalog/Catalog';
 import { useSearchParams } from 'next/navigation';
 
 const Search = () => {
-  const query = useSearchParams()
-  const term = query.get('term')
+  const query = useSearchParams();
+  const term = query.get('term');
   const { data } = useQuery(['search', term],
     () => ProductService.getProducts({
-    searchTerms: term as string,
-  }));
+      searchTerms: term as string,
+    }));
   console.log(data);
   return (
     <Layout>

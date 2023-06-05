@@ -6,10 +6,10 @@ import { useQuery } from '@tanstack/react-query';
 import ProductInfo from '@/components/product/components/product-info/productInfo';
 import { IProduct } from '@/types/product.interface';
 
-const Product:FC<{slug: string}> = ({slug}) => {
+const Product: FC<{ slug: string }> = ({ slug }) => {
   const { data } = useQuery(['get product slug', slug],
     () => ProductService.getProductBySlug(slug as string),
-    {select: (data) => data.data}
+    { select: (data) => data.data },
   );
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -21,7 +21,7 @@ const Product:FC<{slug: string}> = ({slug}) => {
   return (
     <Layout>
       {
-        isLoaded && <ProductInfo product={data as IProduct}/>
+        isLoaded && <ProductInfo product={data as IProduct} />
       }
     </Layout>
   );

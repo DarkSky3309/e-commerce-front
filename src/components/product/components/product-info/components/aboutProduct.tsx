@@ -4,10 +4,11 @@ const AboutProduct = () => {
   return (
     <div>
       <h3 className={'font-bold text-3xl mt-10 mb-5'}>About this item</h3>
-      <div className={'grid grid-cols-3'} style={{gridTemplateRows: '30px 300px', gridTemplateColumns: '1fr 1fr 5fr'}}>
+      <div className={'grid grid-cols-3'}
+           style={{ gridTemplateRows: '30px 300px', gridTemplateColumns: '1fr 1fr 5fr' }}>
         <h4 className={'order-1 font-bold'}>Specifications</h4>
         <div className={'order-2'}>
-      </div>
+        </div>
 
         <div className={'order-4'}>
           <ul className={'text-gray flex gap-2 flex-col'}>
@@ -31,7 +32,7 @@ const AboutProduct = () => {
             <li>Description</li>
           </ul>
         </div>
-      <h4 className={'order-3 font-bold'}>Description</h4>
+        <h4 className={'order-3 font-bold'}>Description</h4>
         <div className={'order-6 flex gap-3 flex-col'}>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium adipisci alias asperiores
             aspernatur atque autem beatae commodi consequatur cumque cupiditate delectus doloremque doloribus

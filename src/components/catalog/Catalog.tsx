@@ -1,12 +1,12 @@
 'use client';
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import ProductItem from '@/components/catalog/product-item/ProductItem';
 import { IProduct } from '@/types/product.interface';
 import Heading from '@/components/heading/heading';
 
 interface ICatalog {
   products: IProduct[];
-  title?: string
+  title?: string;
 }
 
 const Catalog: FC<ICatalog> = ({ products, title }) => {

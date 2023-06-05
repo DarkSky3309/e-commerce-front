@@ -4,7 +4,6 @@ import { useProfile } from '@/hooks/useProfile';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { UserService } from '@/services/user.service';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
-import { useAuth } from '@/hooks/useAuth';
 
 const FavoriteBtn: FC<{ productId: number }> = ({ productId }) => {
   const { profile } = useProfile();
@@ -24,7 +23,7 @@ const FavoriteBtn: FC<{ productId: number }> = ({ productId }) => {
     <>
       {
         profile && <button className={'text-2xl'} onClick={() => mutate()}>
-          {isExists ? <AiFillHeart className={'text-themeColor'}/> : <AiOutlineHeart />}
+          {isExists ? <AiFillHeart className={'text-themeColor'} /> : <AiOutlineHeart />}
         </button>
       }
     </>

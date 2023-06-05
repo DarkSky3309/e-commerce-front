@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { ProductService } from '@/services/product/product.service';
 import Catalog from '@/components/catalog/Catalog';
 
-const Category: FC<{slug: string}> = ({slug}) => {
+const Category: FC<{ slug: string }> = ({ slug }) => {
   const { data } = useQuery(['search', slug],
     () => ProductService.getProducts({
       searchTerms: slug as string,

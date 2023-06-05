@@ -11,12 +11,12 @@ const ProductRating: FC<{ product: IProduct }> = ({ product }) => {
   return (
     <div className={'flex items-center relative mb-1'}>
       <Rating className={'mb-0.5 mr-1'}
-        readonly
-        initialValue={rating}
-        SVGstyle={{ display: 'inline-block' }}
-        size={18}
-        allowFraction
-        transition
+              readonly
+              initialValue={rating}
+              SVGstyle={{ display: 'inline-block' }}
+              size={18}
+              allowFraction
+              transition
       />
       <span>({product.reviews ? product.reviews.length : '0'} reviews)</span>
     </div>

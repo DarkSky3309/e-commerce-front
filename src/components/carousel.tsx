@@ -3,7 +3,8 @@ import Image from 'next/image';
 import { useQuery } from '@tanstack/react-query';
 import { ProductService } from '@/services/product/product.service';
 import { useRouter } from 'next/navigation';
-const Carousel: FC<{ id: number | string }> = ({  id }) => {
+
+const Carousel: FC<{ id: number | string }> = ({ id }) => {
   const { data } = useQuery(['get-similar'], () => ProductService.getSimilarProducts(id), {
     select: ({ data }) => data,
   });
@@ -12,7 +13,7 @@ const Carousel: FC<{ id: number | string }> = ({  id }) => {
   const [pageX, setPageX] = useState(0);
   const [pageLeft, setPageLeft] = useState(0);
   const [isClick, setIsClick] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
 
   const array = data?.map((product) => {
     return <Image key={product.id}
@@ -21,11 +22,11 @@ const Carousel: FC<{ id: number | string }> = ({  id }) => {
                   src={product.images[0]}
                   alt={product.name}
                   width={340} height={340}
-                  draggable={false}/>;
+                  draggable={false} />;
   });
   const redirect = (slug: string) => {
-    router.push(`/product/${slug}`)
-  }
+    router.push(`/product/${slug}`);
+  };
 
   useEffect(() => {
     const handleMouseUp = (e: any) => {
@@ -41,21 +42,21 @@ const Carousel: FC<{ id: number | string }> = ({  id }) => {
   };
 
   const dragStart = (e: any) => {
-    setIsClick(true)
+    setIsClick(true);
     setIsDragStart(true);
     setPageX(e.pageX);
     setPageLeft(carousel.current.scrollLeft);
   };
 
   const dragStartTouch = (e: any) => {
-    setIsClick(true)
+    setIsClick(true);
     setIsDragStart(true);
     setPageX(e.touches[0].pageX);
     setPageLeft(carousel.current.scrollLeft);
   };
 
   const drag = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    setIsClick(false)
+    setIsClick(false);
     if (!isDragStart) return;
     e.preventDefault();
     let positionDiff = e.pageX - pageX;
@@ -63,7 +64,7 @@ const Carousel: FC<{ id: number | string }> = ({  id }) => {
   };
 
   const dragTouch = (e: React.TouchEvent<HTMLDivElement>) => {
-    setIsClick(false)
+    setIsClick(false);
     if (!isDragStart) return;
     let positionDiff = e.touches[0].pageX - pageX;
     carousel.current.scrollLeft = pageLeft - positionDiff;

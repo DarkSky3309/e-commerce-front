@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { IProduct } from '@/types/product.interface';
 import Link from 'next/link';
-import Image from 'next/image';
 import ProductImages from '@/components/product/components/product-info/productImages';
 import ProductBuy from '@/components/product/components/product-info/components/productBuy/productBuy';
 import ProductDescriptions from '@/components/product/components/product-info/components/productDescriptions';
@@ -23,13 +22,13 @@ const ProductInfo: FC<{ product: IProduct }> = ({ product }) => {
       <div>
         <h1 className={'font-bold text-2xl mt-4'}>{product.name}</h1>
         <div className={'mt-3 flex justify-evenly'}>
-          <ProductImages name={product.name} images={product.images}/>
-          <ProductDescriptions/>
-          <ProductBuy product={product}/>
+          <ProductImages name={product.name} images={product.images} />
+          <ProductDescriptions />
+          <ProductBuy product={product} />
         </div>
       </div>
-      <AboutProduct/>
-      <SimilarProduct id={product.id}/>
+      <AboutProduct />
+      <SimilarProduct id={product.id} />
     </div>
   );
 };

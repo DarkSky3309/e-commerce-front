@@ -15,22 +15,22 @@ const SquareButton: FC<ISquareButton> = ({ Icon, number, onClick }) => {
   }, []);
   return (
     isLoaded ? (
-      <button
-        onClick={onClick}
-        className='h-10 w-10 bg-themeColor flex items-center justify-center
+        <button
+          onClick={onClick}
+          className='h-10 w-10 bg-themeColor flex items-center justify-center
                    hover:bg-themeColor/90 transition-colors duration-200
                    relative rounded'
-      >
-        {!!number && (
-          <span className='absolute -top-1 -right-1 bg-black rounded-full text-white
+        >
+          {!!number && (
+            <span className='absolute -top-1 -right-1 bg-black rounded-full text-white
                            w-4 h-4 flex items-center justify-center text-xs'>
               {number}
           </span>
-        )}
-        <Icon className={'text-secondaryColor'} size={21} />
-      </button>
-    ) :
-    <></>
+          )}
+          <Icon className={'text-secondaryColor'} size={21} />
+        </button>
+      ) :
+      <></>
   );
 };
 

@@ -5,7 +5,7 @@ import { PropsWithChildren } from 'react';
 export const metadata = {
   title: 'e-commerce',
   description: 'My E-commerce app',
-}
+};
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (

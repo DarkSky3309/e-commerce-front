@@ -30,8 +30,10 @@ const Auth = () => {
   return (
     <>
       <section className={'flex w-screen items-center justify-center h-screen'}>
-        <form onSubmit={handleSubmit(onSubmit)} className={'rounded-lg bg-white shadow-md p-8 flex justify-between flex-col w-1/3 min-w-360'}>
-          {type === 'login' ? <Heading className={'text-center'}>Login</Heading> : <Heading className={'text-center'}>Register</Heading>}
+        <form onSubmit={handleSubmit(onSubmit)}
+              className={'rounded-lg bg-white shadow-md p-8 flex justify-between flex-col w-1/3 min-w-360'}>
+          {type === 'login' ? <Heading className={'text-center'}>Login</Heading> :
+            <Heading className={'text-center'}>Register</Heading>}
           <Field {...formRegister('email', {
             required: 'Email is required',
             pattern: {
@@ -46,7 +48,8 @@ const Auth = () => {
               value: 6,
               message: 'Password must be at least 6 characters',
             },
-          })} title={'Password'} type={'password'} error={errors.password?.message} placeholder={'Please, enter your password'}/>
+          })} title={'Password'} type={'password'} error={errors.password?.message}
+                 placeholder={'Please, enter your password'} />
           <Button className={'mt-6'} color={'orange'}>Lets go!</Button>
           <button type={'button'} onClick={() => setType(prevState => prevState === 'login' ? 'register' : 'login')}
                   className={'text-gray hover:text-black transition text-center mt-4'}>{type === 'login' ? 'Register' : 'Login'}</button>

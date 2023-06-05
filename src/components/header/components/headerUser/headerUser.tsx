@@ -1,18 +1,18 @@
-'use client'
+'use client';
 import React, { FC } from 'react';
 import { useProfile } from '@/hooks/useProfile';
 import Image from 'next/image';
 
-const HeaderUser :FC = () => {
-  const { profile } = useProfile()
+const HeaderUser: FC = () => {
+  const { profile } = useProfile();
   return (
     <>
       {profile?.avatarPath && (
         <Image className={'rounded-full border-themeColor border border-solid'}
                src={profile.avatarPath}
-               alt={"profile"}
+               alt={'profile'}
                width={43}
-               height={43}/>
+               height={43} />
       )}
     </>
   );

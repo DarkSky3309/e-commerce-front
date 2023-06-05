@@ -5,22 +5,23 @@ import BuyInOneClick from '@/components/product/components/product-info/componen
 import FavoriteBtn from '@/components/catalog/product-item/FavoriteBtn';
 import { RiLockPasswordLine } from 'react-icons/ri';
 
-const ProductBuy:FC<{product: IProduct}> = ({product}) => {
+const ProductBuy: FC<{ product: IProduct }> = ({ product }) => {
   const time = new Date().getTime() + 5270400000;
-  const currentTime = new Date(time)
+  const currentTime = new Date(time);
   return (
     <div className={'text-center w-1/4'}>
       <span className={'text-xl font-bold'}>${product.price}</span>
-      <div className={'flex gap-4 justify-center'}><span className={'text-gray'}>Delivery: </span>{currentTime.toLocaleString().slice(0, 8)}</div>
+      <div className={'flex gap-4 justify-center'}><span
+        className={'text-gray'}>Delivery: </span>{currentTime.toLocaleString().slice(0, 8)}</div>
       <div>
-          <AddToCart color={'light'} product={product}/>
+        <AddToCart color={'light'} product={product} />
         <div className={'flex gap-3 mt-2'}>
-          <BuyInOneClick product={product}/>
-          <FavoriteBtn productId={product.id}/>
+          <BuyInOneClick product={product} />
+          <FavoriteBtn productId={product.id} />
         </div>
       </div>
       <div className={'flex gap-3 items-center mt-2 text-gray'}>
-        <RiLockPasswordLine className={''} size={14}/>
+        <RiLockPasswordLine className={''} size={14} />
         <span className={'text-xs'}>Secure transaction</span>
       </div>
     </div>

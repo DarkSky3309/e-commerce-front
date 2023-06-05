@@ -8,7 +8,7 @@ export const metadata = {
 
 
 const FavoritesPage: NextPage = () => {
-  return <Favorites/>
+  return <Favorites />;
 };
 
 export default FavoritesPage;

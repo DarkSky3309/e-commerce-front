@@ -27,37 +27,37 @@ const Sidebar = () => {
   const logoutHandler = () => {
     logout();
     window.location.reload();
-  }
+  };
 
   return (
     <aside className={'fixed w-1/5 mt-20 h-aside bg-secondaryColor flex flex-col justify-between'}>
       {(isLoaded) &&
-      <>
-        <div>
-          <div className={'text-xl text-white mt-4 mb-6 ml-6'}>
-            Categories:
-          </div>
-          <ul className={'text-white'}>
-            {data?.map((category) => (
-              <li key={category.id}>
-                <Link href={`/category/${category.slug}`}
-                      className={`block text-lg my-3 px-10 hover:text-themeColor
+        <>
+          <div>
+            <div className={'text-xl text-white mt-4 mb-6 ml-6'}>
+              Categories:
+            </div>
+            <ul className={'text-white'}>
+              {data?.map((category) => (
+                <li key={category.id}>
+                  <Link href={`/category/${category.slug}`}
+                        className={`block text-lg my-3 px-10 hover:text-themeColor
                      transition-colors duration-200 
                      ${pathname === `/category/${category.slug}` ? 'text-themeColor' : 'text-white'}`}>
-                  {category.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+                    {category.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
-        </div>
-        {!!user && (
-          <button onClick={() => logoutHandler()} className={'text-white flex items-center mx-auto mb-4'}>
-            <FiLogOut size={20} className={'mr-2'} />
-            <span>Logout</span>
-          </button>
-        )}
-      </>}
+          </div>
+          {!!user && (
+            <button onClick={() => logoutHandler()} className={'text-white flex items-center mx-auto mb-4'}>
+              <FiLogOut size={20} className={'mr-2'} />
+              <span>Logout</span>
+            </button>
+          )}
+        </>}
     </aside>
   );
 };

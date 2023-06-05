@@ -4,7 +4,6 @@ import { IProduct } from '@/types/product.interface';
 import Image from 'next/image';
 import FavoriteBtn from '@/components/catalog/product-item/FavoriteBtn';
 import ProductRating from '@/components/catalog/product-item/ProductRating';
-import { useProfile } from '@/hooks/useProfile';
 import { useAuth } from '@/hooks/useAuth';
 import AddToCart from '@/components/catalog/product-item/AddToCart';
 import Link from 'next/link';

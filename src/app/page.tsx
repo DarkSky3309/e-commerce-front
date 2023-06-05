@@ -10,7 +10,6 @@ export const metadata = {
 };
 
 
-
 const Home: NextPage = () => {
 
   return (

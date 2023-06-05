@@ -3,6 +3,6 @@ export const getContentType = () => ({
 });
 
 export const errorHandler = (error: any): string => {
-  const  message = error?.response?.data?.message;
+  const message = error?.response?.data?.message;
   return message ? typeof message === 'string' ? message : message[0] : 'Something went wrong';
 };
