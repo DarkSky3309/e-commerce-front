@@ -30,7 +30,7 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className={'fixed w-1/5 mt-20 h-aside bg-secondaryColor flex flex-col justify-between'}>
+    <aside className={'fixed z-10 w-1/5 mt-20 h-aside bg-secondaryColor flex flex-col justify-between'}>
       {(isLoaded) &&
         <>
           <div>

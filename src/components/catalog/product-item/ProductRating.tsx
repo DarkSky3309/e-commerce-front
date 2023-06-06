@@ -1,12 +1,17 @@
 'use client';
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Rating } from 'react-simple-star-rating';
 import { IProduct } from '@/types/product.interface';
 
 const ProductRating: FC<{ product: IProduct }> = ({ product }) => {
   const [rating, setRating] = useState(Math.round(
-    product.reviews.reduce((acc, review) => acc + review.rating, 0) / product.reviews.length,
+    product.reviews?.reduce((acc, review) => acc + review.rating, 0) / product.reviews?.length,
   ) || 0);
+  useEffect(() => {
+    setRating(Math.round(
+      product.reviews?.reduce((acc, review) => acc + review.rating, 0) / product.reviews?.length,
+    ) || 0);
+  }, [product.reviews]);
 
   return (
     <div className={'flex items-center relative mb-1'}>

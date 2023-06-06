@@ -3,6 +3,9 @@ import Image from 'next/image';
 import { useQuery } from '@tanstack/react-query';
 import { ProductService } from '@/services/product/product.service';
 import { useRouter } from 'next/navigation';
+import ProductRating from '@/components/catalog/product-item/ProductRating';
+import { ReviewService } from '@/services/review.service';
+import { IProduct } from '@/types/product.interface';
 
 const Carousel: FC<{ id: number | string }> = ({ id }) => {
   const { data } = useQuery(['get-similar'], () => ProductService.getSimilarProducts(id), {
@@ -14,15 +17,22 @@ const Carousel: FC<{ id: number | string }> = ({ id }) => {
   const [pageLeft, setPageLeft] = useState(0);
   const [isClick, setIsClick] = useState(false);
   const router = useRouter();
-
+  console.log(data);
   const array = data?.map((product) => {
-    return <Image key={product.id}
-                  className={'box-border w-1/3 mr-1 last-of-type:mr-0 select-none'}
-                  onClick={() => isClick ? redirect(product.slug) : null}
-                  src={product.images[0]}
-                  alt={product.name}
-                  width={340} height={340}
-                  draggable={false} />;
+    return (<div className={'flex flex-col gap-2 min-w-1/4 w-full'} key={product.id}>
+      <Image
+             className={'box-border mr-1 last-of-type:mr-0 select-none'}
+             onClick={() => isClick ? redirect(product.slug) : null}
+             src={product.images[0]}
+             alt={product.name}
+             width={340} height={340}
+             draggable={false} />
+      <div className={'flex flex-col gap-2 px-3'}>
+        <span className={'font-bold mt-2'}>${product.price}.00</span>
+        <span>{product.name}</span>
+        <ProductRating product={product} />
+      </div>
+    </div>)
   });
   const redirect = (slug: string) => {
     router.push(`/product/${slug}`);
@@ -72,6 +82,7 @@ const Carousel: FC<{ id: number | string }> = ({ id }) => {
 
   return (
     <div className={'max-w-full'}>
+      <h4 className={'text-2xl font-bold mb-4'}>Similar products</h4>
       <div onMouseMove={drag}
            onMouseDown={dragStart}
            onMouseUp={dragEnd}
