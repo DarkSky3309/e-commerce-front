@@ -6,6 +6,7 @@ import ProductBuy from '@/components/product/components/product-info/components/
 import ProductDescriptions from '@/components/product/components/product-info/components/productDescriptions';
 import AboutProduct from '@/components/product/components/product-info/components/aboutProduct';
 import SimilarProduct from '@/components/product/components/product-info/components/similarProduct';
+import ProductInfoReview from '@/components/product/components/product-info/components/productInfoReview';
 
 const ProductInfo: FC<{ product: IProduct }> = ({ product }) => {
   return (
@@ -29,6 +30,7 @@ const ProductInfo: FC<{ product: IProduct }> = ({ product }) => {
       </div>
       <AboutProduct />
       <SimilarProduct id={product.id} />
+      <ProductInfoReview id={product.id} />
     </div>
   );
 };

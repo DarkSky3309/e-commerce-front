@@ -6,9 +6,9 @@ const Layout: FC<PropsWithChildren<unknown>> = ({ children }) => {
   return (
     <React.Fragment>
       <Header />
-      <div className={'min-h-screen-80 grid grid-cols-2'} style={
+      <div className={'min-h-screen-80 grid'} style={
         {
-          gridTemplateColumns: '1fr 4fr',
+          gridTemplateColumns: '20% 80%',
         }
       }>
         <Sidebar />

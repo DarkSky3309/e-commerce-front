@@ -17,7 +17,6 @@ const Carousel: FC<{ id: number | string }> = ({ id }) => {
   const [pageLeft, setPageLeft] = useState(0);
   const [isClick, setIsClick] = useState(false);
   const router = useRouter();
-  console.log(data);
   const array = data?.map((product) => {
     return (<div className={'flex flex-col gap-2 min-w-1/4 w-full'} key={product.id}>
       <Image
