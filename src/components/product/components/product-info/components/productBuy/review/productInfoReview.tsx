@@ -2,18 +2,10 @@ import React, { FC, useState } from 'react';
 import { ReviewService } from '@/services/review.service';
 import { useQuery } from '@tanstack/react-query';
 import { Rating } from 'react-simple-star-rating';
+import RatingBar from '@/components/product/components/product-info/components/productBuy/review/ratingBar';
+import ReviewItem from '@/components/product/components/product-info/components/productBuy/review/reviewItem';
 
-const RatingBar: FC<{ percent: number, text: string }> = ({ percent, text }) => {
-  return (
-    <div className={'flex items-center gap-2'}><span>{text}</span>
-      <div className={'relative w-full h-2 bg-gray rounded'}>
-        <div className={'absolute h-full bg-themeColor transition rounded'} style={{ width: `${percent}%` }} />
-      </div>
-      <span>{percent}%</span>
-    </div>
 
-  );
-};
 const ProductInfoReview: FC<{ id: string | number }> = ({ id }) => {
   const { data } = useQuery(['review', id], () => ReviewService.getReviews(id as number),
     { select: ({ data }) => data });
@@ -22,7 +14,7 @@ const ProductInfoReview: FC<{ id: string | number }> = ({ id }) => {
   ));
   return (data ? (<div className={'item-review'}>
     <h4 className={'font-bold text-xl mt-4'}>Reviews</h4>
-    <div className={'flex justify-between'}>
+    <div className={'flex justify-between border-b-2 border-gray pb-6 mb-6'}>
       <div className={'flex gap-2 items-center'}>
         <span className={'text-8xl font-bold'}>{rating}</span>
         <div className={'flex flex-col'}>
@@ -49,6 +41,11 @@ const ProductInfoReview: FC<{ id: string | number }> = ({ id }) => {
         <RatingBar percent={data.filter((review) => review.rating === 2).length / data.length * 100 | 0} text={'2'} />
         <RatingBar percent={data.filter((review) => review.rating === 1).length / data.length * 100 | 0} text={'1'} />
       </div>
+    </div>
+    <div className={'grid grid-cols-2'}>
+      {data.map((review) => (
+        <ReviewItem review={review} key={review.id} />
+      ))}
     </div>
   </div>) : <></>);
 };

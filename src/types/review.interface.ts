@@ -3,7 +3,7 @@ import { IUser } from '@/types/user.interface';
 export interface IReview{
   id: number;
   user: IUser;
-  created_at: Date;
+  createdAt: Date;
   text: string;
   rating: number;
 

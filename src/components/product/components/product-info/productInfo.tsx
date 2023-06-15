@@ -6,7 +6,7 @@ import ProductBuy from '@/components/product/components/product-info/components/
 import ProductDescriptions from '@/components/product/components/product-info/components/productDescriptions';
 import AboutProduct from '@/components/product/components/product-info/components/aboutProduct';
 import SimilarProduct from '@/components/product/components/product-info/components/similarProduct';
-import ProductInfoReview from '@/components/product/components/product-info/components/productInfoReview';
+import ProductInfoReview from '@/components/product/components/product-info/components/productBuy/review/productInfoReview';
 
 const ProductInfo: FC<{ product: IProduct }> = ({ product }) => {
   return (
