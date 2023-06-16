@@ -13,10 +13,18 @@ async function HomeComponent() {
     page: 1,
     perPage: 4,
   }).then((res) => res);
+  if (data)
   return (
     <>
       <Layout>
         <CatalogPagination data={data} title={'New products'} />
+      </Layout>
+    </>
+  );
+  return (
+    <>
+      <Layout>
+        <div>loading...</div>
       </Layout>
     </>
   );
