@@ -41,5 +41,9 @@
     "@types/js-cookie": "^3.0.3",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.2.8"
-  }
+  },
+  "cacheDirectories": [
+    "node_modules/",
+    ".next/cache/"
+  ]
 }
