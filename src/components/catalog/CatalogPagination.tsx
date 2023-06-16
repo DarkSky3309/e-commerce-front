@@ -22,7 +22,7 @@ const CatalogPagination: FC<ICatalogPagination> = ({ data, title }) => {
   const [page, setPage] = useState(1);
   const [products, setProducts] = useState<IProduct[]>([]);
   const btn = useRef<HTMLDivElement>(null);
-
+  console.log(data);
   const { data: response } = useQuery(
     ['products', sortType, page],
     () =>
