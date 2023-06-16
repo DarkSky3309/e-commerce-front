@@ -13,16 +13,14 @@ import { PRODUCT_SORT } from '@/enums/enums';
 import { ProductService } from '@/services/product/product.service';
 
 interface ICatalogPagination {
-  data: TypePaginationProducts;
   title?: string;
 }
 
-const CatalogPagination: FC<ICatalogPagination> = ({ data, title }) => {
+const CatalogPagination: FC<ICatalogPagination> = ({  title }) => {
   const [sortType, setSortType] = useState<PRODUCT_SORT>(PRODUCT_SORT.newest);
   const [page, setPage] = useState(1);
   const [products, setProducts] = useState<IProduct[]>([]);
   const btn = useRef<HTMLDivElement>(null);
-  console.log(data);
   const { data: response } = useQuery(
     ['products', sortType, page],
     () =>
@@ -32,7 +30,6 @@ const CatalogPagination: FC<ICatalogPagination> = ({ data, title }) => {
         sort: sortType,
       }),
     {
-      initialData: data,
       onSuccess: (data) => {
         setProducts((prevState) => [...prevState, ...data.products]);
       },
@@ -44,7 +41,7 @@ const CatalogPagination: FC<ICatalogPagination> = ({ data, title }) => {
     setPage(1);
   }, [sortType]);
 
-  if (response.products.length < 4) {
+  if (response && response.products.length < 4) {
     btn.current?.classList.add('hidden');
   } else {
     btn.current?.classList.remove('hidden');

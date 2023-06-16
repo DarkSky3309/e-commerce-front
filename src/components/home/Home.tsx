@@ -9,22 +9,11 @@ import { ProductService } from '@/services/product/product.service';
 
 
 async function HomeComponent() {
-  const data: TypePaginationProducts = await ProductService.getProducts({
-    page: 1,
-    perPage: 4,
-  }).then((res) => res);
-  if (data)
+
   return (
     <>
       <Layout>
-        <CatalogPagination data={data} title={'New products'} />
-      </Layout>
-    </>
-  );
-  return (
-    <>
-      <Layout>
-        <div>loading...</div>
+        <CatalogPagination title={'New products'} />
       </Layout>
     </>
   );
