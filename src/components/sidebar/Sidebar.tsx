@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { CategoryService } from '@/services/category.service';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '@/hooks/useAuth';
 import { FiLogOut } from 'react-icons/fi';
@@ -51,10 +51,15 @@ const Sidebar = () => {
             </ul>
 
           </div>
-          {!!user && (
+          {!!user ? (
             <button onClick={() => logoutHandler()} className={'text-white flex items-center mx-auto mb-4'}>
               <FiLogOut size={20} className={'mr-2'} />
               <span>Logout</span>
+            </button>
+          ) : (
+            <button onClick={() => window.location.replace('/auth')} className={'text-white flex items-center mx-auto mb-4'}>
+              <FiLogOut size={20} className={'mr-2'} />
+              <span>Login</span>
             </button>
           )}
         </>}

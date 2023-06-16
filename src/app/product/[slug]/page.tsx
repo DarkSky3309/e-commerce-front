@@ -1,13 +1,15 @@
-import { NextPage } from 'next';
-import Layout from '@/components/layout/Layout';
-import Catalog from '@/components/catalog/Catalog';
-import Category from '@/components/categoty/category';
 import Product from '@/components/product/product';
+import Head from 'next/head';
 
 export default function ProductPage({ params, searchParams }:
                                       { params: { slug: string }, searchParams: { [key: string]: string | string[] | undefined } }) {
+  const metadata = {
+    title: `${params.slug} | E-commerce`,
+    description: 'My E-commerce app',
+  }
+  return(
 
-
-  return <Product slug={params.slug} />;
+      <Product slug={params.slug} />
+    )
 };
 
