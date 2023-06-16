@@ -4,7 +4,7 @@ type TypeOut = {
   ref: React.MutableRefObject<any>;
   isShowing: boolean;
   setIsShowing: React.Dispatch<React.SetStateAction<boolean>>;
-}
+};
 
 export const useModal = (initialVisible: boolean): TypeOut => {
   const [isShowing, setIsShowing] = useState(initialVisible);
@@ -15,10 +15,10 @@ export const useModal = (initialVisible: boolean): TypeOut => {
     }
   };
   useEffect(() => {
-    document.addEventListener("click", handleClickOutside, true);
+    document.addEventListener('click', handleClickOutside, true);
     return () => {
-      document.removeEventListener("click", handleClickOutside, true);
+      document.removeEventListener('click', handleClickOutside, true);
     };
   }, []);
   return { ref, isShowing, setIsShowing };
-}
+};

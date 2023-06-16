@@ -1,5 +1,6 @@
-import { instance } from '@/API/api.interceptor';
 import { IDataReview, IReview } from '@/types/review.interface';
+
+import { instance } from '@/API/api.interceptor';
 
 export const ReviewService = {
   async getReviews(productId: number) {
@@ -13,7 +14,7 @@ export const ReviewService = {
     return instance<number>({
       url: '/reviews/average/' + productId,
       method: 'GET',
-    })
+    });
   },
 
   async createReview(productId: number, data: IDataReview) {

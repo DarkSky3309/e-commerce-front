@@ -1,4 +1,1 @@
-export const protectedRoutes = [
-  '/my-orders',
-  '/favorites',
-  ]
+export const protectedRoutes = ['/my-orders', '/favorites'];

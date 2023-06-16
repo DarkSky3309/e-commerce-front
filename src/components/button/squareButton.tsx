@@ -1,4 +1,5 @@
 'use client';
+
 import React, { FC, useEffect, useState } from 'react';
 import { IconType } from 'react-icons';
 
@@ -13,24 +14,25 @@ const SquareButton: FC<ISquareButton> = ({ Icon, number, onClick }) => {
   useEffect(() => {
     setIsLoaded(true);
   }, []);
-  return (
-    isLoaded ? (
-        <button
-          onClick={onClick}
-          className='h-10 w-10 bg-themeColor flex items-center justify-center
+  return isLoaded ? (
+    <button
+      onClick={onClick}
+      className="h-10 w-10 bg-themeColor flex items-center justify-center
                    hover:bg-themeColor/90 transition-colors duration-200
-                   relative rounded'
+                   relative rounded"
+    >
+      {!!number && (
+        <span
+          className="absolute -top-1 -right-1 bg-black rounded-full text-white
+                           w-4 h-4 flex items-center justify-center text-xs"
         >
-          {!!number && (
-            <span className='absolute -top-1 -right-1 bg-black rounded-full text-white
-                           w-4 h-4 flex items-center justify-center text-xs'>
-              {number}
-          </span>
-          )}
-          <Icon className={'text-secondaryColor'} size={21} />
-        </button>
-      ) :
-      <></>
+          {number}
+        </span>
+      )}
+      <Icon className={'text-secondaryColor'} size={21} />
+    </button>
+  ) : (
+    <></>
   );
 };
 

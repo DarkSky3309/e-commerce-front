@@ -1,7 +1,9 @@
-import React from 'react';
 import { GetStaticProps, NextPage } from 'next';
-import HomeComponent from '@/components/home/Home';
+import React from 'react';
+
 import { IProduct, TypePaginationProducts } from '@/types/product.interface';
+
+import HomeComponent from '@/components/home/Home';
 import { ProductService } from '@/services/product/product.service';
 
 export const metadata = {
@@ -9,9 +11,7 @@ export const metadata = {
   description: 'My E-commerce app',
 };
 
-
 const Home: NextPage = () => {
-
   return (
     <div className={'min-h-screen'}>
       <HomeComponent></HomeComponent>
@@ -20,5 +20,3 @@ const Home: NextPage = () => {
 };
 
 export default Home;
-
-

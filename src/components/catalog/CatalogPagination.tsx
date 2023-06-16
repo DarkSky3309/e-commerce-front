@@ -1,13 +1,16 @@
 'use client';
+
+import { useQuery } from '@tanstack/react-query';
 import React, { FC, useEffect, useRef, useState } from 'react';
-import ProductItem from '@/components/catalog/product-item/ProductItem';
+
 import { IProduct, TypePaginationProducts } from '@/types/product.interface';
-import Heading from '@/components/heading/heading';
-import SortDropDown from '@/components/catalog/SortDropDown';
+
 import Button from '@/components/button/button';
+import SortDropDown from '@/components/catalog/SortDropDown';
+import ProductItem from '@/components/catalog/product-item/ProductItem';
+import Heading from '@/components/heading/heading';
 import { PRODUCT_SORT } from '@/enums/enums';
 import { ProductService } from '@/services/product/product.service';
-import { useQuery } from '@tanstack/react-query';
 
 interface ICatalogPagination {
   data: TypePaginationProducts;
@@ -20,16 +23,21 @@ const CatalogPagination: FC<ICatalogPagination> = ({ data, title }) => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const btn = useRef<HTMLDivElement>(null);
 
-  const { data: response } = useQuery(['products', sortType, page], () => ProductService.getProducts({
-    page,
-    perPage: 4,
-    sort: sortType,
-  }), {
-    initialData: data,
-    onSuccess: (data) => {
-      setProducts(prevState => [...prevState, ...data.products]);
-    },
-  });
+  const { data: response } = useQuery(
+    ['products', sortType, page],
+    () =>
+      ProductService.getProducts({
+        page,
+        perPage: 4,
+        sort: sortType,
+      }),
+    {
+      initialData: data,
+      onSuccess: (data) => {
+        setProducts((prevState) => [...prevState, ...data.products]);
+      },
+    }
+  );
 
   useEffect(() => {
     setProducts([]);
@@ -50,13 +58,22 @@ const CatalogPagination: FC<ICatalogPagination> = ({ data, title }) => {
       </div>
 
       <div className={'grid grid-cols-4 row-auto first:mr-6 mb-8'}>
-        {products.length ? products.map((product: IProduct) => (
-          <ProductItem key={product.id} product={product} />
-        )) : <h2>Products not found</h2>}
+        {products.length ? (
+          products.map((product: IProduct) => (
+            <ProductItem key={product.id} product={product} />
+          ))
+        ) : (
+          <h2>Products not found</h2>
+        )}
       </div>
       <div className={'text-center'} ref={btn}>
-        <Button onClick={() => setPage(prevState => prevState + 1)}
-                size={'sm'} color={'orange'}>Load more</Button>
+        <Button
+          onClick={() => setPage((prevState) => prevState + 1)}
+          size={'sm'}
+          color={'orange'}
+        >
+          Load more
+        </Button>
       </div>
     </section>
   );

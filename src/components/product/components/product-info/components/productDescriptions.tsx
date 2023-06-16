@@ -1,6 +1,9 @@
 import React, { FC } from 'react';
 
-const DescriptionItem: FC<{ title: string, content: string }> = ({ title, content }) => {
+const DescriptionItem: FC<{ title: string; content: string }> = ({
+  title,
+  content,
+}) => {
   return (
     <span className={'grid grid-cols-2'}>
       <span className={'text-gray'}>{title}</span>
@@ -19,11 +22,26 @@ const ProductDescriptions = () => {
         <DescriptionItem title={'Lorem'} content={'Lorem'} />
       </div>
       <ul className={'text-secondaryColor list-disc text-sm'}>
-        <li className={' mb-2'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium</li>
-        <li className={' mb-2'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium</li>
-        <li className={' mb-2'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium</li>
-        <li className={' mb-2'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium</li>
-        <li className={''}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium</li>
+        <li className={' mb-2'}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus,
+          accusantium
+        </li>
+        <li className={' mb-2'}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus,
+          accusantium
+        </li>
+        <li className={' mb-2'}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus,
+          accusantium
+        </li>
+        <li className={' mb-2'}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus,
+          accusantium
+        </li>
+        <li className={''}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus,
+          accusantium
+        </li>
       </ul>
     </div>
   );

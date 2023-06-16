@@ -1,8 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { IAuthResponse, IEmailPassword } from '@/store/user/user.inteface';
-import { AuthService } from '@/services/auth/auth.service';
-import { removeTokenAndUserStorage } from '@/services/auth/auth.helper';
+
 import { errorHandler } from '@/API/api.helper';
+import { removeTokenAndUserStorage } from '@/services/auth/auth.helper';
+import { AuthService } from '@/services/auth/auth.service';
 
 export const register = createAsyncThunk<IAuthResponse, IEmailPassword>(
   'auth/register',
@@ -13,7 +15,7 @@ export const register = createAsyncThunk<IAuthResponse, IEmailPassword>(
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
-  },
+  }
 );
 
 export const login = createAsyncThunk<IAuthResponse, IEmailPassword>(
@@ -25,7 +27,7 @@ export const login = createAsyncThunk<IAuthResponse, IEmailPassword>(
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
-  },
+  }
 );
 
 export const logout = createAsyncThunk('auth/logout', async () => {
@@ -44,4 +46,5 @@ export const checkAuth = createAsyncThunk<IAuthResponse>(
       }
       return thunkAPI.rejectWithValue(error);
     }
-  });
+  }
+);

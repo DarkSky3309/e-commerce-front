@@ -1,7 +1,7 @@
-import { IProduct } from '@/types/product.interface';
 import { IOrder } from '@/types/oder.interface';
+import { IProduct } from '@/types/product.interface';
 
-export interface IUser{
+export interface IUser {
   id: number;
   email?: string;
   name: string;
@@ -9,7 +9,7 @@ export interface IUser{
   phone?: string;
 }
 
-export interface IDataUser{
+export interface IDataUser {
   email: string;
   password?: string;
   name?: string;
@@ -17,8 +17,7 @@ export interface IDataUser{
   avatarPath?: string;
 }
 
-export interface IFullUser extends IUser{
+export interface IFullUser extends IUser {
   favorits: IProduct[];
   orders: IOrder[];
-
 }

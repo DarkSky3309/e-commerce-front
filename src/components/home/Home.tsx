@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
-import { TypePaginationProducts } from '@/types/product.interface';
-import { ProductService } from '@/services/product/product.service';
-import Layout from '@/components/layout/Layout';
-import CatalogPagination from '@/components/catalog/CatalogPagination';
 
+import { TypePaginationProducts } from '@/types/product.interface';
+
+import CatalogPagination from '@/components/catalog/CatalogPagination';
+import Layout from '@/components/layout/Layout';
+import { ProductService } from '@/services/product/product.service';
 
 export const revalidate = 60;
 
@@ -15,7 +16,9 @@ async function getProducts() {
   return data;
 }
 
-{/* @ts-expect-error Async Server Component */}
+{
+  /* @ts-expect-error Async Server Component */
+}
 
 const HomeComponent: FC = async () => {
   const data = await getProducts();
@@ -27,6 +30,5 @@ const HomeComponent: FC = async () => {
     </>
   );
 };
-
 
 export default HomeComponent;

@@ -26,13 +26,13 @@ export type TypeDataFilters = {
   searchTerms?: string;
   page?: number | string;
   perPage?: number | string;
-}
+};
 
 export type TypeProduct = {
   products: IProduct[];
-}
+};
 
 export type TypePaginationProducts = {
   products: IProduct[];
   length: number;
-}
+};

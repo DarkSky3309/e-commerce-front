@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 body {
-  @apply text-base text-black bg-bgColor;
+  @apply bg-bgColor text-base text-black;
   font-family: "Roboto", sans-serif;
 }
 

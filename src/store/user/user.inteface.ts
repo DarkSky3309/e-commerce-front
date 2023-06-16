@@ -1,22 +1,22 @@
-export interface IUserState{
+export interface IUserState {
   readonly email: string;
 }
 
-export interface ITokens{
+export interface ITokens {
   accessToken: string;
   refreshToken: string;
 }
 
-export interface IInitialState{
+export interface IInitialState {
   user: IUserState | null;
   isLoading: boolean;
 }
 
-export interface IEmailPassword{
+export interface IEmailPassword {
   email: string;
   password: string;
 }
 
-export interface IAuthResponse extends ITokens{
+export interface IAuthResponse extends ITokens {
   user: IUserState;
 }

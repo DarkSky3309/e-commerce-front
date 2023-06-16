@@ -1,15 +1,19 @@
 'use client';
-import React, { FC, useEffect, useState } from 'react';
-import Layout from '@/components/layout/Layout';
-import { ProductService } from '@/services/product/product.service';
+
 import { useQuery } from '@tanstack/react-query';
-import ProductInfo from '@/components/product/components/product-info/productInfo';
+import React, { FC, useEffect, useState } from 'react';
+
 import { IProduct } from '@/types/product.interface';
 
+import Layout from '@/components/layout/Layout';
+import ProductInfo from '@/components/product/components/product-info/productInfo';
+import { ProductService } from '@/services/product/product.service';
+
 const Product: FC<{ slug: string }> = ({ slug }) => {
-  const { data } = useQuery(['get product slug', slug],
+  const { data } = useQuery(
+    ['get product slug', slug],
     () => ProductService.getProductBySlug(slug as string),
-    { select: (data) => data.data },
+    { select: (data) => data.data }
   );
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -19,11 +23,7 @@ const Product: FC<{ slug: string }> = ({ slug }) => {
     }
   }, [data]);
   return (
-    <Layout>
-      {
-        isLoaded && <ProductInfo product={data as IProduct} />
-      }
-    </Layout>
+    <Layout>{isLoaded && <ProductInfo product={data as IProduct} />}</Layout>
   );
 };
 

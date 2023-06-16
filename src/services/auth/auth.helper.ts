@@ -1,5 +1,7 @@
 import Cookies from 'js-cookie';
+
 import { IAuthResponse, ITokens } from '@/store/user/user.inteface';
+
 import { TOKEN_TYPE } from '@/enums/enums';
 
 export const saveTokenStorage = (tokens: ITokens) => {
@@ -20,11 +22,11 @@ export const saveToStorage = (data: IAuthResponse) => {
 
 export const getAccessToken = () => {
   return Cookies.get(TOKEN_TYPE.accessToken);
-}
+};
 
 export const getRefreshToken = () => {
   return Cookies.get(TOKEN_TYPE.refreshToken);
-}
+};
 
 export const getUserFromStorage = () => {
   const user = localStorage.getItem('user');
@@ -32,4 +34,4 @@ export const getUserFromStorage = () => {
     return JSON.parse(user);
   }
   return null;
-}
+};

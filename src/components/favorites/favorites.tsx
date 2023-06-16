@@ -1,6 +1,9 @@
 'use client';
+
 import React from 'react';
+
 import { useProfile } from '@/hooks/useProfile';
+
 import Catalog from '@/components/catalog/Catalog';
 import Layout from '@/components/layout/Layout';
 

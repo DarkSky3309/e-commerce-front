@@ -1,19 +1,18 @@
 export enum TOKEN_TYPE {
   accessToken = 'accessToken',
-  refreshToken = 'refreshToken'
+  refreshToken = 'refreshToken',
 }
 
 export enum ORDER_STATUS {
   paid = 'PAID',
   pending = 'PENDING',
   canceled = 'CANCELED',
-  delivered = 'DELIVERED'
+  delivered = 'DELIVERED',
 }
 
-export enum PRODUCT_SORT{
+export enum PRODUCT_SORT {
   highToLow = 'high-to-low',
   lowToHigh = 'low-to-high',
   newest = 'newest',
-  oldest = 'oldest'
+  oldest = 'oldest',
 }
-

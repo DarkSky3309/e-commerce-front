@@ -1,4 +1,10 @@
-import { IDataProduct, IProduct, TypeDataFilters, TypePaginationProducts } from '@/types/product.interface';
+import {
+  IDataProduct,
+  IProduct,
+  TypeDataFilters,
+  TypePaginationProducts,
+} from '@/types/product.interface';
+
 import { instance } from '@/API/api.interceptor';
 
 export const ProductService = {
@@ -10,8 +16,6 @@ export const ProductService = {
     });
     return data;
   },
-
-
 
   async getSimilarProducts(productId: number | string) {
     return instance<IProduct[]>({

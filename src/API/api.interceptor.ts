@@ -1,6 +1,10 @@
 import axios from 'axios';
+
 import { errorHandler, getContentType } from '@/API/api.helper';
-import { getAccessToken, removeTokenAndUserStorage } from '@/services/auth/auth.helper';
+import {
+  getAccessToken,
+  removeTokenAndUserStorage,
+} from '@/services/auth/auth.helper';
 import { AuthService } from '@/services/auth/auth.service';
 
 export const instance = axios.create({
@@ -8,33 +12,37 @@ export const instance = axios.create({
   headers: getContentType(),
 });
 
-instance.interceptors.request.use(config => {
+instance.interceptors.request.use((config) => {
   const accessToken = getAccessToken();
   if (config && config.headers && accessToken) {
-    config.headers.Authorization = `Bearer ${config.data ? config.data.refreshToken : accessToken}`;
+    config.headers.Authorization = `Bearer ${
+      config.data ? config.data.refreshToken : accessToken
+    }`;
   }
   return config;
 });
 
-instance.interceptors.response.use(config => config, async error => {
-  const originalRequest = error.config;
-  if (
-    (error.response.status === 401 ||
-      errorHandler(error) === 'jwt expired' ||
-      errorHandler(error) === 'jwt must be provided')
-    && error.config
-    && !error.config._isRetry
-  ) {
-    originalRequest._isRetry = true;
-    try {
-      await AuthService.getNewTokens();
-      return instance.request(originalRequest);
-    } catch (error) {
-      if (errorHandler(error) === 'jwt expired') {
-        removeTokenAndUserStorage();
+instance.interceptors.response.use(
+  (config) => config,
+  async (error) => {
+    const originalRequest = error.config;
+    if (
+      (error.response.status === 401 ||
+        errorHandler(error) === 'jwt expired' ||
+        errorHandler(error) === 'jwt must be provided') &&
+      error.config &&
+      !error.config._isRetry
+    ) {
+      originalRequest._isRetry = true;
+      try {
+        await AuthService.getNewTokens();
+        return instance.request(originalRequest);
+      } catch (error) {
+        if (errorHandler(error) === 'jwt expired') {
+          removeTokenAndUserStorage();
+        }
       }
     }
+    throw error;
   }
-  throw error;
-});
-
+);

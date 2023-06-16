@@ -1,12 +1,14 @@
-import React, { FC } from 'react';
-import { IProduct } from '@/types/product.interface';
 import Link from 'next/link';
-import ProductImages from '@/components/product/components/product-info/productImages';
-import ProductBuy from '@/components/product/components/product-info/components/productBuy/productBuy';
-import ProductDescriptions from '@/components/product/components/product-info/components/productDescriptions';
+import React, { FC } from 'react';
+
+import { IProduct } from '@/types/product.interface';
+
 import AboutProduct from '@/components/product/components/product-info/components/aboutProduct';
-import SimilarProduct from '@/components/product/components/product-info/components/similarProduct';
+import ProductBuy from '@/components/product/components/product-info/components/productBuy/productBuy';
 import ProductInfoReview from '@/components/product/components/product-info/components/productBuy/review/productInfoReview';
+import ProductDescriptions from '@/components/product/components/product-info/components/productDescriptions';
+import SimilarProduct from '@/components/product/components/product-info/components/similarProduct';
+import ProductImages from '@/components/product/components/product-info/productImages';
 
 const ProductInfo: FC<{ product: IProduct }> = ({ product }) => {
   return (

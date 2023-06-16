@@ -1,6 +1,7 @@
 import { ICartItem } from '@/types/cart.interface';
-import { ORDER_STATUS } from '@/enums/enums';
 import { IUser } from '@/types/user.interface';
+
+import { ORDER_STATUS } from '@/enums/enums';
 
 export interface IOrder {
   id: number;
@@ -10,4 +11,3 @@ export interface IOrder {
   status: ORDER_STATUS;
   user: IUser;
 }
-

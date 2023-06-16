@@ -1,26 +1,26 @@
-interface IAmount{
+interface IAmount {
   value: string;
   currency: string;
 }
 
-interface IRecipient{
+interface IRecipient {
   account_id: string;
   gateway_id: string;
 }
 
-interface IPaymentMethod{
+interface IPaymentMethod {
   type: string;
   id: string;
   saved: boolean;
 }
 
-interface IConfirmation{
+interface IConfirmation {
   type: string;
   return_url: string;
   confirmation_url: string;
 }
 
-export interface IPayment{
+export interface IPayment {
   id: string;
   status: string;
   amount: IAmount;

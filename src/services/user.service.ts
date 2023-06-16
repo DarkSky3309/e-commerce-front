@@ -1,5 +1,6 @@
-import { instance } from '@/API/api.interceptor';
 import { IDataUser, IFullUser, IUser } from '@/types/user.interface';
+
+import { instance } from '@/API/api.interceptor';
 
 export const UserService = {
   async getProfile() {

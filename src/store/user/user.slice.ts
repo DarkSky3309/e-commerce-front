@@ -1,6 +1,8 @@
-import { IInitialState } from '@/store/user/user.inteface';
 import { createSlice } from '@reduxjs/toolkit';
+
 import { login, logout, register, checkAuth } from '@/store/user/user.actions';
+import { IInitialState } from '@/store/user/user.inteface';
+
 import { getLocalStorage } from '@/utils/local-storage';
 
 const initialState: IInitialState = {
@@ -12,10 +14,11 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {},
-  extraReducers: builder => {
-    builder.addCase(register.pending, (state) => {
-      state.isLoading = true;
-    })
+  extraReducers: (builder) => {
+    builder
+      .addCase(register.pending, (state) => {
+        state.isLoading = true;
+      })
       .addCase(register.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload.user;

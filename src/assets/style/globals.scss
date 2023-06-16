@@ -2,17 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
-body{
-    @apply text-base text-black bg-bgColor;
-    font-family: 'Roboto', sans-serif;
+body {
+  @apply bg-bgColor text-base text-black;
+  font-family: 'Roboto', sans-serif;
 }
 
-.disabled{
-    pointer-events: none;
-    cursor: default;
-    text-decoration: none;
-    opacity: 0.2 !important;
+.disabled {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  opacity: 0.2 !important;
 }

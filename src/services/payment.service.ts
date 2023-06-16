@@ -1,5 +1,6 @@
-import { instance } from '@/API/api.interceptor';
 import { IPayment } from '@/types/payment.interface';
+
+import { instance } from '@/API/api.interceptor';
 
 export const PaymentService = {
   async createPayment(amount: number) {

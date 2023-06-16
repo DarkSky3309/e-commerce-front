@@ -7,4 +7,4 @@ export const getLocalStorage = (key: string) => {
     return null;
   }
   return null;
-}
+};
