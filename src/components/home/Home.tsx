@@ -16,10 +16,9 @@ async function getProducts() {
   return data;
 }
 
-{
-  /* @ts-expect-error Async Server Component */
-}
 
+
+  /* @ts-expect-error Async Server Component */
 const HomeComponent: FC = async () => {
   const data = await getProducts();
   return (
