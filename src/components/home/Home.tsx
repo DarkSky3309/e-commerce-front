@@ -8,7 +8,7 @@ import { ProductService } from '@/services/product/product.service';
 
 
 
-async function HomeComponent() {
+function HomeComponent() {
 
   return (
     <>
